@@ -1,0 +1,7 @@
+{
+  "name": "Nutri-Fit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
