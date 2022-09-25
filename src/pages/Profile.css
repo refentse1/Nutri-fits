@@ -1,0 +1,28 @@
+ion-content{
+    font-size: 15px;
+    text-align: center;
+}
+
+ion-text{
+    color: #FE8235;
+}
+
+.img-container{
+    width: 150px;
+    margin: auto;
+}
+
+.img-container img{
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+ion-icon{
+    color: grey;
+}
+
+.app-heading{
+    text-align: center;
+}

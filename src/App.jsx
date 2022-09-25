@@ -28,7 +28,14 @@ import Progress from './pages/Progress';
 
 setupIonicReact();
 
+const userData = {
+  user: "Jane Doe",
+  email: "janedoe@gmail.com",
+  img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+}
+
 const App = () => (
+
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -39,7 +46,7 @@ const App = () => (
             />
           </Route>
           <Route exact path="/profile">
-            <Profile/>
+            <Profile username= {userData.user} email= {userData.email} img= {userData.img} />
           </Route>
           <Route exact path="/progress">
             <Progress/>
