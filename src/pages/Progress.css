@@ -1,0 +1,23 @@
+.stats-container{
+    width: 95%;
+    margin: auto;
+    text-align: left;
+}
+
+.goal{
+    text-align: right;
+}
+
+.progress-bar{
+    height: 18px;
+    width: 100%;
+    border-radius: 15px;
+    background-color: grey;
+}
+
+.bar{
+    width: 100%;
+    height: 18px;
+    border-radius: 15px;
+    background-color: #FE8235;
+}
