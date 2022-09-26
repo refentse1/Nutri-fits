@@ -1,9 +1,23 @@
-ion-content{
+ion-content.profile-page{
     font-size: 15px;
+    padding: 20px;
     text-align: center;
 }
 
-ion-text{
+ion-text.heading{
+    font-family: 'Epilogue';
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 23px;
+    color: #573926;
+}
+
+ion-text.inapp-text{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
     color: #FE8235;
 }
 
@@ -17,6 +31,7 @@ ion-text{
     height: 150px;
     object-fit: fill;
     border-radius: 50%;
+    border:  4px solid #FE8235
 }
 
 ion-icon{

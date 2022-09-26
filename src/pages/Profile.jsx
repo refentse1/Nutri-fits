@@ -19,16 +19,16 @@ function Profile(props) {
   return (
     <IonPage>
       <Toolbar />
-      <IonContent fullscreen>
-        <IonText>
-          <h2 className="app-heading">Profile</h2>
+      <IonContent fullscreen className= "profile-page ion-padding">
+        <IonText className="heading">
+          <h2>Profile</h2>
         </IonText>
 
         <div className="img-container">
           <img src={props.img} />
         </div>
 
-        <IonText>
+        <IonText className= "inapp-text">
           <p>{props.username}</p>
           <p>{props.email}</p>
         </IonText>
