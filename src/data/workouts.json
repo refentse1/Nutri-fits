@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "name":"Jogging",
+        "img":"https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "color":"workoutColor1",
+        "path":"/workout"
+    },
+    {
+        "id":2,
+        "name":"Crunches",
+        "img":"https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "color":"workoutColor2",
+        "path":"/workout"
+    },
+    {
+        "id":3,
+        "name":"Push Ups",
+        "img":"https://images.pexels.com/photos/1199607/pexels-photo-1199607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "color":"workoutColor3",
+        "path":"/workout"
+    },
+    {
+        "id":4,
+        "name":"Lunges",
+        "img":"https://images.pexels.com/photos/1582161/pexels-photo-1582161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "color":"",
+        "path":"/workout"
+    }
+]

@@ -1,0 +1,16 @@
+.workouts--card{
+    border-radius: 8px;
+    margin: 1px;
+}
+#workoutColor1{
+    background: #FDBD84;
+}
+#workoutColor2{
+    background: #FFE5CD;
+}
+#workoutColor3{
+    background: #D9D8D8;
+}
+.workouts--name{
+    text-align: center;
+}

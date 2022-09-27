@@ -1,0 +1,24 @@
+ion-col > div.workouts--category{
+    padding: 2.1px;
+    border-radius: 5px;
+    text-align: center;
+}
+.workouts--title{
+    color: red;
+    padding-left: 5px;
+}
+.workouts--text{
+    padding-left: 5px;
+}
+.workouts--category--name{
+    background-color: antiquewhite;
+}
+#workouts-category-color1{
+    background-color:#FEE7E7 ;
+}
+#workouts-category-color2{
+    background-color:#f09d5488 ;
+}
+#workouts-category-color3{
+    background-color:#F09E54 ;
+}

@@ -1,20 +1,36 @@
 import {  IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import Card from '../components/Card';
 import Toolbar from '../components/Toolbar';
 import './Home.css';
+import CardData from "../data/card.json";
 
-const Home = ({text}) => {
+const Home = () => {
+
+
   return (
-    <IonPage>
+    <IonPage >
       <Toolbar/>
-      <IonContent fullscreen>
+      <IonContent className='background'  fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
+          <IonToolbar >
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonText>
-          <h2>Home</h2>
-        </IonText>
+        <IonTitle>
+          <IonText>
+            <p>Good Day,<br/><strong>Nickname!</strong></p>
+          </IonText>
+        </IonTitle>
+        {CardData.map((data)=>{
+            return(
+              <Card
+                id={data.id}
+                title={data.title}
+                card={data.card}
+                path={data.path}
+              />
+            );
+        })}
       </IonContent>
     </IonPage>
   );

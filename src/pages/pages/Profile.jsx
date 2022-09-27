@@ -16,9 +16,6 @@ import Toolbar from "../components/Toolbar";
 import "./Profile.css";
 
 function Profile(props) {
-
-  
-
   return (
     <IonPage>
       <Toolbar />

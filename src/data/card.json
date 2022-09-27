@@ -1,0 +1,20 @@
+[
+    {
+        "id":"1",
+       "title" :"Workouts",
+       "card":"card1",
+       "path":"/workouts"
+    },
+    {
+        "id":"2",
+       "title" :"Meals",
+       "card":"card2",
+       "path":"/meals"
+    },
+    {
+        "id":"3",
+       "title" :"Local Gyms",
+       "card":"card3",
+       "path":"/gyms"
+    }
+]

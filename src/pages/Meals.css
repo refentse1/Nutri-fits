@@ -1,0 +1,24 @@
+ion-col > div.meals--category{
+    padding: 2.1px;
+    border-radius: 5px;
+    text-align: center;
+}
+.meals--title{
+    color: red;
+    padding-left: 5px;
+}
+.meals--text{
+    padding-left: 5px;
+}
+#meals-calorie-color1{
+    background-color:#FEE7E7 ;
+}
+#meals-calorie-color2{
+    background-color:#f09d5488 ;
+}
+#meals-calorie-color3{
+    background-color:#F09E54 ;
+}
+.loading{
+    color: #F09E54;
+}

@@ -83,6 +83,8 @@ http://ionicframework.com/docs/theming/ */
    */
 
   body {
+    /* Theme color for our app */
+    --ion-color-theme1:#FEF3E7;
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;

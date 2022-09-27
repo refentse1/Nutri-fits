@@ -24,25 +24,56 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Profile from './pages/Profile';
 import Progress from './pages/Progress';
+import Workouts from './pages/Workouts';
+import Meals from './pages/Meals';
+import Gyms from './pages/Gyms';
+import Meal from './pages/Meal';
+import Workout from './pages/Workout';
+import { useState } from 'react';
 
 
 setupIonicReact();
 
+const userData = {
+  user: "Jane Doe",
+  email: "janedoe@gmail.com",
+  img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+};
+
+
 const App = () => (
-  <IonApp>
+
+  <IonApp >
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
           <Route exact path="/home">
-            <Home 
-                text = "Hello" 
-            />
+            <Home />
           </Route>
           <Route exact path="/profile">
-            <Profile/>
+          <Profile
+              username={userData.user}
+              email={userData.email}
+              img={userData.img}
+            />
           </Route>
           <Route exact path="/progress">
             <Progress/>
+          </Route>
+          <Route exact path="/workouts">
+            <Workouts/>
+          </Route>
+          <Route exact path="/workout/:id">
+            <Workout/>
+          </Route>
+          <Route exact path="/meals">
+            <Meals/>
+          </Route>
+          <Route exact path="/meal/:id">
+            <Meal/>
+          </Route>
+          <Route exact path="/gyms">
+            <Gyms/>
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />

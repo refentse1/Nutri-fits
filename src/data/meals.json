@@ -1,0 +1,34 @@
+[
+    {
+        "id":1,
+        "meal":"Sandwich",
+        "img":"https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "ingredients":"Ingredients",
+        "color":"mealColor1",
+        "path":"/meal"
+    },
+    {
+        "id":2,
+        "meal":"Burger",
+        "img":"https://images.pexels.com/photos/2702674/pexels-photo-2702674.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "ingredients":"Ingredients",
+        "color":"mealColor2",
+        "path":"/meal"
+    },
+    {
+        "id":3,
+        "meal":"Pasta",
+        "img":"https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "ingredients":"Ingredients",
+        "color":"mealColor3",
+        "path":"/meal"
+    },
+    {
+        "id":4,
+        "meal":"Salad",
+        "img":"https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "ingredients":"Ingredients",
+        "color":"mealColor4",
+        "path":"/meal"
+    }
+]

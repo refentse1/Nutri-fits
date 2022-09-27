@@ -1,0 +1,25 @@
+.meals--card{
+    border-radius: 8px;
+    margin: 1px;
+}
+#meals--img{
+    border-radius: 5px;
+    width: 100px;
+    height: 75px;
+}
+#mealColor1{
+    background: #FDBD84;
+}
+#mealColor2{
+    background: #FFE5CD;
+}
+#mealColor3{
+    background: #D9D8D8;
+}
+.meals--name{
+    margin-top: 30px;
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
