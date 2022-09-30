@@ -52,3 +52,7 @@ input[type="number"]{
     border-radius: 15px;
     background-color: #FE8235;
 }
+
+.btn-container{
+    text-align: center;
+}

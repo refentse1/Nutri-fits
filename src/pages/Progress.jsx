@@ -88,9 +88,15 @@ function Progress(props) {
             </div>
           </div>
 
-          <IonButton className="progress-btn" shape="round" onClick={progress}>
-            Save changes
-          </IonButton>
+          <div className="btn-container">
+            <IonButton
+              className="progress-btn"
+              shape="round"
+              onClick={progress}
+            >
+              Save changes
+            </IonButton>
+          </div>
         </div>
       </IonContent>
     </IonPage>
