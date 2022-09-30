@@ -11,6 +11,15 @@ ion-text.inapp-text{
     color: #FE8235;
 }
 
+ion-text.inapp-text h3{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: #FF0000;
+}
+
 ion-text.heading{
     font-family: 'Epilogue';
     font-style: normal;
@@ -26,16 +35,22 @@ input[type="number"]{
     border-radius: 15px;
     padding: 5px;
     border-style: none;
+    width: 60vw ;
 }
 
 .stats-container{
     width: 95%;
     margin: auto;
     text-align: left;
+    
 }
 
 .goal{
+    font-family: 'Epilogue';
+    font-style: normal;
+    font-weight: 500;
     text-align: right;
+    color: #FE8235;
 }
 
 .progress-bar{
