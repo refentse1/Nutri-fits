@@ -1,0 +1,53 @@
+
+.LogoC{
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 30.5px 20px 2px 31%;
+    margin-top: 50px;
+
+
+}
+
+.Logo img{
+    display: inline-block;
+}
+
+ion-input{
+    --placeholder-color:black;
+    --background-color:black;
+    --color:black
+}
+.name{
+    color: black;
+}
+.title{
+
+    text-align: center;
+    color:#FE8235;
+    padding: 20px;
+    font-size: 36px;
+
+}
+
+ion-content{
+    --ion-background-color:#E5E5E5;
+}
+
+
+ion-col{
+   --ion-col-text:center;
+}
+
+
+
+ion-content-item-input.title{
+    --ion-item-color:black;
+}
+ion-button{
+    --color:black
+    --background-color:#FE8235;
+    min-width:200px;
+    font-weight:bold;
+}
+
