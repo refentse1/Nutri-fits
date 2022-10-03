@@ -19,13 +19,19 @@ function Workout() {
                 {Error && <div><IonRow><IonCol><IonText ><p style={{textAlign:"Center",fontWeight:"bold"}}>{Error}</p></IonText></IonCol></IonRow></div> }
                 {workout &&(
                     <>
-                        <IonRow>
-                            <IonCol><img src={workout.img} alt="" /></IonCol>
+                        <IonRow className="ion-padding">
+                            <IonCol><img style={{borderRadius:"5px"}} src={workout.img} alt="" /></IonCol>
                         </IonRow>
                         <IonRow>
-                            <IonCol><IonText><IonTitle>{workout.name}</IonTitle></IonText></IonCol>
+                            <IonCol><IonText><IonTitle><p style={{textAlign:"center"}}>{workout.name}</p></IonTitle></IonText></IonCol>
                         </IonRow>
-                        <IonButton className="workout--start">Start</IonButton>
+                        <IonRow>
+                            <IonCol>
+                                <p style={{textAlign:"center"}}>
+                                 <IonButton  className="workout--start">Start</IonButton>
+                                </p>
+                            </IonCol>
+                        </IonRow>
                     </>
                 )}
             </IonGrid>
