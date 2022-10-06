@@ -1,5 +1,6 @@
 import { IonButton, IonCol, IonContent, IonGrid, IonPage, IonRow, IonText, IonTitle } from "@ionic/react";
 import { useParams } from "react-router";
+import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import useFetch from "../hooks/useFetch";
 
@@ -20,7 +21,7 @@ function Workout() {
                 {workout &&(
                     <>
                         <IonRow className="ion-padding">
-                            <IonCol><img style={{borderRadius:"5px"}} src={workout.img} alt="" /></IonCol>
+                            <IonCol><iframe style={{width:"100%"}} src={workout.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></IonCol>
                         </IonRow>
                         <IonRow>
                             <IonCol><IonText><IonTitle><p style={{textAlign:"center"}}>{workout.name}</p></IonTitle></IonText></IonCol>
@@ -36,6 +37,7 @@ function Workout() {
                 )}
             </IonGrid>
             </IonContent>
+            <TabBar/>
         </IonPage>
     );
 }

@@ -3,6 +3,7 @@ import Card from '../components/Card';
 import Toolbar from '../components/Toolbar';
 import './Home.css';
 import CardData from "../data/card.json";
+import TabBar from '../components/TabBar';
 
 const Home = () => {
 
@@ -32,6 +33,7 @@ const Home = () => {
             );
         })}
       </IonContent>
+      <TabBar/>
     </IonPage>
   );
 };

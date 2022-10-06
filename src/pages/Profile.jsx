@@ -12,6 +12,7 @@ import {
   notificationsOutline,
   createOutline,
 } from "ionicons/icons";
+import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import "./Profile.css";
 
@@ -62,6 +63,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
       </IonContent>
+      <TabBar/>
     </IonPage>
   );
 }

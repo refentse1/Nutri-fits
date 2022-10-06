@@ -45,7 +45,7 @@ const App = () => (
 
   <IonApp >
     <IonReactRouter>
-      <IonTabs>
+      {/* <IonTabs> */}
         <IonRouterOutlet>
           <Route exact path="/home">
             <Home />
@@ -79,7 +79,7 @@ const App = () => (
             <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
+        {/* <IonTabBar slot="bottom">
             <IonTabButton tab="profile" href="/profile">
                 <IonIcon icon={personOutline}/>
                 <IonLabel>Profile</IonLabel>
@@ -93,7 +93,7 @@ const App = () => (
                 <IonLabel>Progress</IonLabel>
             </IonTabButton>
         </IonTabBar>
-      </IonTabs>
+      </IonTabs> */}
     </IonReactRouter>
   </IonApp>
 );

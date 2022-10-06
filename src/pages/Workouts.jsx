@@ -4,6 +4,7 @@ import WorkoutCrd from "../components/WorkoutCrd";
 import "./Workouts.css"
 import { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
+import TabBar from "../components/TabBar";
 
 
 function Workouts() {
@@ -52,6 +53,7 @@ const {data:workouts, isLoading, Error} = useFetch('http://localhost:8000/workou
                     })}
                 </IonGrid>
             </IonContent>
+            <TabBar/>
         </IonPage>
      );
 }

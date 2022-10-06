@@ -1,5 +1,6 @@
 import { IonButton, IonCol, IonContent, IonGrid, IonPage, IonRow, IonText, IonTitle } from "@ionic/react";
 import { useParams } from "react-router";
+import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import useFetch from "../hooks/useFetch";
 
@@ -32,6 +33,7 @@ function Meal() {
                 )}
               </IonGrid>
             </IonContent>
+            <TabBar/>
         </IonPage>
      );
 }

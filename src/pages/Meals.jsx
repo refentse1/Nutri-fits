@@ -1,6 +1,7 @@
 import { IonCol, IonContent, IonGrid, IonPage, IonRow, IonText, IonTitle } from "@ionic/react";
 import { useEffect, useState } from "react";
 import MealCard from "../components/MealCard";
+import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import useFetch from "../hooks/useFetch";
 import "./Meals.css"
@@ -51,6 +52,7 @@ function Meals() {
                     })}
                 </IonGrid>
            </IonContent>
+           <TabBar/>
         </IonPage>
      );
 }

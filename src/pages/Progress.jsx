@@ -1,5 +1,6 @@
 import { IonContent, IonPage, IonText, IonButton } from "@ionic/react";
 import { useState } from "react";
+import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import "./Progress.css";
 
@@ -93,6 +94,7 @@ function Progress(props) {
           </IonButton>
         </div>
       </IonContent>
+      <TabBar/>
     </IonPage>
   );
 }
