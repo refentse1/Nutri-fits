@@ -30,6 +30,12 @@ import Gyms from './pages/Gyms';
 import Meal from './pages/Meal';
 import Workout from './pages/Workout';
 import { useState } from 'react';
+import Height from './pages/Height';
+import TargetWeight from './pages/TargetWeight';
+import Weight from './pages/Weight';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import SignIn from './pages/SignIn';
 
 
 setupIonicReact();
@@ -73,6 +79,24 @@ const App = () => (
           </Route>
           <Route exact path="/gyms">
             <Gyms/>
+          </Route>
+          <Route exact path="/height">
+            <Height/>
+          </Route>
+          <Route exact path="/targetweight">
+            <TargetWeight/>
+          </Route>
+          <Route exact path="/weight">
+            <Weight/>
+          </Route>
+          <Route exact path='/login'>
+            <Login/>
+          </Route>
+          <Route exact path='/register'>
+            <Register/>
+          </Route>
+          <Route exact path='/signin'>
+            <SignIn/>
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />

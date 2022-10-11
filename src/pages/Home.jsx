@@ -1,4 +1,4 @@
-import {  IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import {  IonButton, IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import Card from '../components/Card';
 import Toolbar from '../components/Toolbar';
 import './Home.css';
@@ -32,6 +32,12 @@ const Home = () => {
               />
             );
         })}
+        <IonButton routerLink='/height'>Height</IonButton>
+        <IonButton routerLink='/targetweight'>TargetWeight</IonButton>
+        <IonButton routerLink='/weight'>Weight</IonButton>
+        <IonButton routerLink='/login'>Login</IonButton>
+        <IonButton routerLink='/register'>Register</IonButton>
+        <IonButton routerLink='/signin'>SignIn/Up</IonButton>
       </IonContent>
       <TabBar/>
     </IonPage>
