@@ -16,6 +16,7 @@ import {
 import Logo from "../images/Logo.png"
 import "../components/Toolbar.css"
 import Toolbar from '../components/Toolbar';
+// import './style.css';
 
 const Weight = () => {
     const [weight, setWeight] = useState('');
@@ -41,10 +42,11 @@ const Weight = () => {
                     />
                 </IonItem>
                 <p className='button'>
-                    <IonButton routerLink="/Height" shape='round' >
+                    <IonButton routerLink="/height" shape='round' >
                         <IonText className='next-button'>Next</IonText>
                     </IonButton>
                 </p> 
+                
             </IonContent>
         </IonPage>
     );

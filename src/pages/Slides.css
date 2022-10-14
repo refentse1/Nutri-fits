@@ -1,0 +1,21 @@
+.slide{
+ margin-top: 35vh;
+}
+ion-content.slide1{
+    --background: white ;
+}
+ion-content.slide2{
+    --background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url("../images/LDkettle.JPG") no-repeat center ;
+}
+ion-content.slide3{
+    --background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url("../images/GymRat.JPG") no-repeat center ;
+}
+ion-content.slide4{
+    --background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url("../images/fooD.jpeg") no-repeat center ;
+}
+
+.slide-text{
+    color:white;
+    font-size: 32px;
+    line-height: 32px;
+}

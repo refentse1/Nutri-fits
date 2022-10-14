@@ -1,0 +1,65 @@
+body {
+    --background-color: #FEF3E7;
+}
+.profile {
+    font-weight: bold;
+    font-size: 15px;
+    color: #573926;
+}
+.motivate {
+    font-family: 'Domine';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 22px;
+
+    text-align: center;
+    letter-spacing: -0.408px;
+
+    color: #573926;
+}
+
+.ion-weight {
+    position: absolute;
+    width: 276px;
+    height: 84px;
+    left: 59px;
+    top: 120px;
+
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 56px;
+    color: #FE8235;
+}
+
+.weight {
+    color: #E71919;
+    margin-left: -11px;
+    position: absolute;
+    top: 120px;
+}
+
+.ion-item--weight {
+    top: 210px;
+}
+
+ion-button.button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 133px;
+    height: 45px;
+    /* position: absolute;
+    top: 190px;
+    left: 37px; */
+}
+
+ion-button.next-button {
+    font-family: 'Domine';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: #573926;
+}

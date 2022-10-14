@@ -1,18 +1,19 @@
 import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonItem, IonLabel, IonPage, IonRow, IonTitle,} from "@ionic/react";
 import Toolbar from "../components/Toolbar";
-// import "./Register.css"
+
 import LogoX from "../images/LogoX.png";
+import './Styles.css'
 
 function Register() {
     return ( 
         <IonPage>
-        <IonContent >
+        <IonContent class="mypages">
         <IonGrid>
             <img src={LogoX} class="LogoC"></img>
-            <IonHeader><IonTitle class="title">Nutri-Fit</IonTitle></IonHeader>
-            <IonItem><IonLabel>Name</IonLabel><IonInput class="name" ></IonInput></IonItem>
-            <IonItem><IonLabel>Surname</IonLabel><IonInput  class="name"></IonInput></IonItem>
-            <IonItem><IonLabel>Password</IonLabel><IonInput  class="name"></IonInput></IonItem>
+            <IonHeader><IonTitle class="Title">Nutri-Fit</IonTitle></IonHeader>
+            <IonItem><IonLabel>Name</IonLabel><IonInput class="nameI" ></IonInput></IonItem>
+            <IonItem><IonLabel>Surname</IonLabel><IonInput class="nameI"></IonInput></IonItem>
+            <IonItem><IonLabel>Password</IonLabel><IonInput  class="nameI"></IonInput></IonItem>
   
             </IonGrid>
             <p  style={{textAlign:"center"}}><IonButton shape="round" routerLink='/Login' class="btn" className='Lbtn'>Register</IonButton></p>

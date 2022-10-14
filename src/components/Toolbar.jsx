@@ -5,7 +5,7 @@ import "./Toolbar.css"
 function Toolbar() {
     return ( 
         <IonHeader>
-            <IonToolbar  className="ToolBar background">
+            <IonToolbar  className="ToolBar background" >
                 <IonTitle className="align--content"> 
                     <img className="logo" src={Logo} alt="" />
                 </IonTitle>

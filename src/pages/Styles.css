@@ -1,0 +1,72 @@
+ion-content.mainContent{
+    --background: url(../images/KettlebellPeople.jpg) 0 0/100% 100% no-repeat;
+}
+    /* webkit-background-size:100%;
+    moz-background-size:100%;
+    moz-animation-delay:100% */
+
+.reg{
+    padding-top: 100%;
+
+}
+
+.Rbtn{
+    width: 60%;
+   margin-top: 50%;
+
+ 
+   
+}
+.Lbtn{
+    width: 60%;
+   
+}
+.LogoC{
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 30.5px 20px 2px 31%;
+    margin-top: 50px;
+
+
+}
+
+.Logo img{
+    display: inline-block;
+}
+
+ion-input.nameI{
+    --placeholder-color:black;
+    --background-color:black;
+    --color:black
+}
+.nameI{
+    color: black;
+}
+.Title{
+
+    text-align: center;
+    color:#FE8235;
+    padding: 20px;
+    font-size: 36px;
+
+}
+
+ion-content.mypages{
+    --ion-background-color:#E5E5E5;
+}
+
+
+/* ion-col{
+   --ion-col-text:center;
+} */
+
+
+
+ion-content-item-input.title{
+    --ion-item-color:black;
+}
+ion-button{
+    --color:black
+    --background-color:#FE8235;
+}

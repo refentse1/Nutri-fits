@@ -36,6 +36,7 @@ import Weight from './pages/Weight';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
+import OnBoarding from './pages/OnBoarding';
 
 
 setupIonicReact();
@@ -98,8 +99,11 @@ const App = () => (
           <Route exact path='/signin'>
             <SignIn/>
           </Route>
+          <Route exact path='/onboarding'>
+            <OnBoarding/>
+          </Route>
           <Route exact path="/">
-            <Redirect to="/home" />
+            <Redirect to="/onboarding" />
           </Route>
         </IonRouterOutlet>
     </IonReactRouter>
