@@ -32,12 +32,6 @@ const Home = () => {
               />
             );
         })}
-        <IonButton routerLink='/height'>Height</IonButton>
-        <IonButton routerLink='/targetweight'>TargetWeight</IonButton>
-        <IonButton routerLink='/weight'>Weight</IonButton>
-        <IonButton routerLink='/login'>Login</IonButton>
-        <IonButton routerLink='/register'>Register</IonButton>
-        <IonButton routerLink='/signin'>SignIn/Up</IonButton>
       </IonContent>
       <TabBar/>
     </IonPage>
