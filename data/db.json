@@ -11,7 +11,7 @@
         {
             "id":2,
             "meal":"Burger",
-            "img":"https://images.pexels.com/photos/2702674/pexels-photo-2702674.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "img":"https://images.pexels.com/photos/918581/pexels-photo-918581.jpeg?cs=srgb&dl=pexels-andra-918581.jpg&fm=jpg",
             "ingredients":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, eaque saepe, et maxime voluptatibus eligendi dolor incidunt nesciunt odit, ut voluptatum aut. Fuga dicta quibusdam odio saepe sint maxime laborum!",
             "color":"mealColor2",
             "path":"/meal"

@@ -1,16 +1,22 @@
-.workouts--card{
-    border-radius: 8px;
-    margin: 1px;
-}
-#workoutColor1{
-    background: #FDBD84;
-}
-#workoutColor2{
-    background: #FFE5CD;
-}
-#workoutColor3{
-    background: #D9D8D8;
-}
-.workouts--name{
+ion-card.container {
+    position: relative;
     text-align: center;
-}
+    color: white;
+    box-shadow: 0px 15px 10px 0px #00000040;
+    height: 80%;
+    margin: 0px;
+    border-radius: 15px;
+    
+  }
+  .centered {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .card--bg{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    
+  }
