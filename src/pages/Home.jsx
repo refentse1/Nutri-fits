@@ -8,7 +8,6 @@ import Workouts from '../images/Workouts.jpg';
 import Meals from '../images/Meals.jpg';
 import Gyms from '../images/Gyms.jpg';
 
-
 const Home = () => {
   return (
     <IonPage >
