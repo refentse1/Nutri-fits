@@ -7,7 +7,6 @@ import TabBar from '../components/TabBar';
 
 const Home = () => {
 
-
   return (
     <IonPage >
       <Toolbar/>
