@@ -3,18 +3,12 @@ import Workout from "../pages/Workout";
 import "./WorkoutCrd.css";
 
 
-function WorkoutCrd({workoutImg,workoutname,workoutColor,id}) {
+function WorkoutCrd({workoutImg,workoutname,id}) {
 
     return (  
-        <IonCard id={workoutColor} className="workouts--card" routerLink={`/workout/${id}`} key={id}>
-            <IonCardContent>
-                <IonGrid>
-                    <IonRow>
-                        <IonCol size="4"><img style={{borderRadius:5 +"px"}} src={workoutImg} alt="" /></IonCol>
-                        <IonCol size="8"><IonText><h2 className="workouts--name" style={{marginTop:18+"px",color:"black",fontWeight:"bold"}}>{workoutname}</h2></IonText></IonCol>
-                    </IonRow>
-                </IonGrid>
-            </IonCardContent>
+        <IonCard className="container" routerLink={`/workout/${id}`} key={id}>
+            <img  className="card--bg" src={workoutImg} alt="cardBg.jpg" />
+            <h2 className="centered">{workoutname}</h2>
         </IonCard>
     );
 }

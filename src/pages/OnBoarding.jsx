@@ -23,16 +23,16 @@ function OnBoarding() {
         initialSlide: 0,
         speed: 400,
         autoplay:true,
-        loop:false
+        loop:false,
       };
 
     return ( 
-                <IonSlides  options={slideOpts}>
-
-                    {/* If user is authenticated or already registered they will be pushed to the home page */}
+            <>
+                    {/* Check if user is authenticated or already registered and redirect them to the home page */}
                     {auth ? <Home/> :
-                    // If the user isnt authenticated they will see the OnBoarding pages then be promted to register
-                     <>
+                    // If they are not authenticated display the sliders to the SignIn/SignUp page
+                    <>
+                    <IonSlides  options={slideOpts}>
                     <IonSlide >
                         <Slide1/>
                     </IonSlide>
@@ -48,10 +48,10 @@ function OnBoarding() {
                     <IonSlide>
                         <SignIn/>
                     </IonSlide>
-                    </>
-                                        
-                    }
                 </IonSlides>
+                </>
+                }
+            </>
      );
 }
 

@@ -4,9 +4,11 @@ import Toolbar from '../components/Toolbar';
 import './Home.css';
 import CardData from "../data/card.json";
 import TabBar from '../components/TabBar';
+import Workouts from '../images/Workouts.jpg';
+import Meals from '../images/Meals.jpg';
+import Gyms from '../images/Gyms.jpg';
 
 const Home = () => {
-
   return (
     <IonPage >
       <Toolbar/>
