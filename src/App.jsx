@@ -3,6 +3,7 @@ import { IonApp, IonRouterOutlet, IonTabs, setupIonicReact,IonIcon, IonLabel, Io
 import { IonReactRouter } from '@ionic/react-router';
 import { personOutline,homeOutline, trendingUpOutline } from 'ionicons/icons';
 import Home from './pages/Home';
+import AuthContextProvider from "../contexts/AuthContext"
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -49,7 +50,8 @@ const userData = {
 
 const App = () => (
 
-  <IonApp >
+  <AuthContextProvider>
+    <IonApp >
     <IonReactRouter>
         <IonRouterOutlet>
           <Route exact path="/home">
@@ -107,6 +109,8 @@ const App = () => (
         </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
+  </AuthContextProvider>
+  
 );
 
 export default App;
