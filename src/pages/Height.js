@@ -17,9 +17,11 @@ import Logo from "../images/Logo.png"
 import "../components/Toolbar"
 import Toolbar from "../components/Toolbar";
 import './styling.css';
+import {useContext} from "react"
+import {AuthContext} from "../contexts/AuthContext"
 
 const Height = () => {
-    const [height, setHeight] = useState('');
+    const {heightInput, setHeightInput, addHeight} = useContext(AuthContext)
     return (
         <IonPage>
             <Toolbar/>
@@ -37,13 +39,13 @@ const Height = () => {
                     <IonInput
                         type="number" 
                         placeholder='(cm)' 
-                        value={height} 
-                        onIonChange={(event) => setHeight(event.detail.value)}
+                        value={heightInput} 
+                        onIonChange={(e) => setHeightInput(e.target.value)}
                     />
                 </IonItem>
                 <p className='button'>
                     <IonButton routerLink="/targetWeight" shape='round'>
-                        <IonText className='next-button'>Next</IonText>
+                        <IonText className='next-button'onClick= {addHeight}>Next</IonText>
                     </IonButton>
                 </p>
             </IonContent>

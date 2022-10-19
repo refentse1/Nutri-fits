@@ -1,17 +1,124 @@
-import {createContext, useState} from "react";
-
+import { createContext, useState, useEffect } from "react";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth } from "../config/firebase-config";
+import { db } from "../config/firebase-config";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  setDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [registerName, setRegisterName] = useState("");
+  const [registerSurname, setRegisterSurname] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState({});
+  const [weightInput, setWeightInput] = useState(0);
+  const [heightInput, setHeightInput] = useState(0);
+  const [targetWeightInput, setTargetWeightInput] = useState(0)
+  const [users, setUsers] = useState([]);
+  const [currentId, setCurrentId] = useState("");
+  const userCollectionRef = collection(db, "userDetails");
 
-    const [test, setTets] = useState("Context works");
+  //Fetching user data from firestore
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(userCollectionRef);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(users);
+    };
+    getUsers();
+  }, []);
 
-    return(
-        <AuthContext.Provider value= {test}>
-            {props.children}
-        </AuthContext.Provider>
-    )
-}
+  //   const addDetails = async () => {
+  //     await addDoc(userCollectionRef, {name: registerName, surname: registerSurname, id: })
+  //   }
+
+  const register = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      console.log(user);
+
+      //Getting logged user ID
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const uid = user.uid;
+          setCurrentId(user.uid);
+          setDoc(doc(db, "userDetails", uid), {
+            name: registerName,
+            surname: registerSurname,
+            email: user.email,
+          });
+          //addDoc(userCollectionRef, {name: registerName, surname: registerSurname, id: uid, email: user.email})
+          console.log(uid);
+          console.log(user.email);
+          setLoggedInUser(user);
+        } else {
+          // User is signed out
+          console.log("failed");
+        }
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const addCurrentWeight = async () => {
+    const documentRef = doc(db, "userDetails", currentId);
+    await updateDoc(documentRef, {
+      weight: weightInput,
+    });
+  };
+
+  const addHeight = async () => {
+    const documentRef = doc(db, "userDetails", currentId);
+    await updateDoc(documentRef, {
+      height: heightInput,
+    });
+  };
+
+  const addGoal = async () => {
+    const documentRef = doc(db, "userDetails", currentId);
+    await updateDoc(documentRef, {
+      goalWeigh: targetWeightInput,
+    });
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{
+        setRegisterEmail,
+        setRegisterPassword,
+        registerEmail,
+        registerPassword,
+        registerName,
+        setRegisterName,
+        registerSurname,
+        setRegisterSurname,
+        loggedInUser,
+        weightInput,
+        setWeightInput,
+        addCurrentWeight,
+        heightInput, setHeightInput, addHeight, targetWeightInput, setTargetWeightInput, addGoal,
+        register,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
+};
 
 export default AuthContextProvider;
