@@ -37,6 +37,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
 import OnBoarding from './pages/OnBoarding';
+import UserContext from './pages/context';
+import Setupscreen from './pages/Setupscreen';
 
 
 setupIonicReact();
@@ -48,66 +50,97 @@ const userData = {
 };
 
 
-const App = () => (
+const App = () => {
 
+  const [user, setUser] = useState([
+    {
+      name: "suprise",
+      surname: "mehmet",
+      studentNo: "123456",
+      study: "3rd year",
+    },
+  ]);
+  
+// User input for height, weight and target weight (Firestore)
+const [weight, setWeight] = useState('');
+const [height, setHeight] = useState('');
+const [targetWeight, setTargetWeight] = useState('');
+
+const addWeight = (weight) => {
+  setWeight(weight);
+};
+const addHeight = (Height) => {
+  setHeight(Height);
+};
+const addTargetWeight = (targetWeight) => {
+  setTargetWeight(targetWeight);
+};
+  
+  
+  return(
   <IonApp >
-    <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/profile">
-          <Profile
-              username={userData.user}
-              email={userData.email}
-              img={userData.img}
-            />
-          </Route>
-          <Route exact path="/progress">
-            <Progress/>
-          </Route>
-          <Route exact path="/workouts">
-            <Workouts/>
-          </Route>
-          <Route exact path="/workout/:id">
-            <Workout/>
-          </Route>
-          <Route exact path="/meals">
-            <Meals/>
-          </Route>
-          <Route exact path="/meal/:id">
-            <Meal/>
-          </Route>
-          <Route exact path="/gyms">
-            <Gyms/>
-          </Route>
-          <Route exact path="/height">
-            <Height/>
-          </Route>
-          <Route exact path="/targetweight">
-            <TargetWeight/>
-          </Route>
-          <Route exact path="/weight">
-            <Weight/>
-          </Route>
-          <Route exact path='/login'>
-            <Login/>
-          </Route>
-          <Route exact path='/register'>
-            <Register/>
-          </Route>
-          <Route exact path='/signin'>
-            <SignIn/>
-          </Route>
-          <Route exact path='/onboarding'>
-            <OnBoarding/>
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/onboarding" />
-          </Route>
-        </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+    <UserContext.Provider value={{ user: user, setUser: setUser }}>
+            <IonReactRouter>
+              <IonRouterOutlet>
+                <Route exact path="/home">
+                  <Home />
+                </Route>
+                <Route exact path="/profile">
+                <Profile
+                    username={userData.user}
+                    email={userData.email}
+                    img={userData.img}
+                  />
+                </Route>
+                <Route exact path="/progress">
+                  <Progress/>
+                </Route>
+                <Route exact path="/workouts">
+                  <Workouts/>
+                </Route>
+                <Route exact path="/workout/:id">
+                  <Workout/>
+                </Route>
+                <Route exact path="/meals">
+                  <Meals/>
+                </Route>
+                <Route exact path="/meal/:id">
+                  <Meal/>
+                </Route>
+                <Route exact path="/gyms">
+                  <Gyms/>
+                </Route>
+                <Route exact path="/height">
+                  <Height/>
+                </Route>
+                <Route exact path="/targetweight">
+                  <TargetWeight/>
+                </Route>
+                <Route exact path="/weight">
+                  <Weight/>
+                </Route>
+                <Route exact path='/login'>
+                  <Login/>
+                </Route>
+                <Route exact path='/register'>
+                  <Register/>
+                </Route>
+                <Route exact path='/signin'>
+                  <SignIn/>
+                </Route>
+                <Route exact path='/onboarding'>
+                  <OnBoarding/>
+                </Route>
+                <Route exact path='/setupscreen'>
+                  <Setupscreen/>
+                </Route>
+                <Route exact path="/">
+                  <Redirect to="/onboarding" />
+                </Route>
+              </IonRouterOutlet>
+          </IonReactRouter>
+    </UserContext.Provider>
+</IonApp>
+)};
 
 export default App;

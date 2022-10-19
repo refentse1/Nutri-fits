@@ -8,7 +8,7 @@ function Slide4() {
             <IonContent className="slide4">
                 <div className="slide">
                     <img src={Logo} alt="" />
-                    <p className="slide-text">Find the right <br/> workout for what <br/> you need</p>
+                    <p className="slide-text">Prepare exceptional <br/> meals on your health <br/> journey</p>
                 </div>
             </IonContent>
         </IonPage>

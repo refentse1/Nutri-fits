@@ -1,0 +1,65 @@
+ion-content.profile-page{
+    font-size: 15px;
+    padding: 20px;
+    text-align: center;
+    --ion-background-color:#FEF3E7;
+}
+
+.img-container{
+    width: 150px;
+    margin: auto;
+}
+.img-container img{
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+    border-radius: 50%;
+    border:  4px solid #FE8235;
+    margin-top: 10%;
+}
+ion-button.next-bt{
+    --background: #FE8235;
+    --background-hover: #FE8235;
+    --background-activated: #FE8235;
+    --background-focused: #FE8235;
+    --font-family: Domine;
+    border-color: #FE8235; 
+    color:#573926;
+    width: 50%;
+    height: 6%;
+    margin-bottom:-40%;
+    margin-left: -5%;
+    font-family:'Domine';
+    font-weight: 10;
+    font-size: 20px
+  }
+/* ion-input{
+    border-bottom: none !important;
+    border-bottom: 0px !important;
+    border-bottom: 1px solid #573926 !important;
+    font-family:Domine ;
+} */
+.Sprofile{
+    color:#573926;
+    background-color: #FEF3E7;
+    font-family: 'Epilogue';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 41px;
+    
+}
+ion-input.Name{
+    color: #573926;
+    border-bottom: 1px solid #573926 ;
+    border-bottom: none !important;
+    border-bottom: 0px !important;
+    font-family:Domine ;
+}
+ion-input.Nickname{
+    color: #573926;
+    border-bottom: 1px solid #573926 ;   
+    border-bottom: none !important;
+    border-bottom: 0px !important;
+    font-family:Domine;
+}

@@ -16,7 +16,7 @@ import Home from "./Home";
 
 function OnBoarding() {
 
-    const [auth,setAuth] = useState(true);
+    const [auth,setAuth] = useState(false);
     
 
     const slideOpts = {

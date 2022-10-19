@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { 
     IonBackButton, 
     IonButton, 
@@ -16,10 +16,12 @@ import {
 import Logo from "../images/Logo.png"
 import "../components/Toolbar.css"
 import Toolbar from '../components/Toolbar';
-// import './style.css';
-
-const Weight = () => {
-    const [weight, setWeight] = useState('');
+import './style.css';
+;
+const Weight = (props) => {
+    const onChangeWeight = (event) => {
+        props.onAddWeight(event.target.value);
+    }
     return ( 
         <IonPage>
             <Toolbar/>
@@ -37,16 +39,16 @@ const Weight = () => {
                     <IonInput
                         type="number"
                         placeholder='(kg)' 
-                        value={weight} 
-                        onIonChange={(event) => setWeight(event.detail.value)}
+                        // value={weight} 
+                        onIonChange={onChangeWeight}
                     />
                 </IonItem>
-                <p className='button'>
-                    <IonButton routerLink="/height" shape='round' >
-                        <IonText className='next-button'>Next</IonText>
+
+                <p className='next-button'>
+                    <IonButton routerLink="/Height" shape='round'>
+                        Next
                     </IonButton>
-                </p> 
-                
+                </p>
             </IonContent>
         </IonPage>
     );

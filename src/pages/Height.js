@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
     IonBackButton, 
     IonButton, 
@@ -16,10 +16,12 @@ import {
 import Logo from "../images/Logo.png"
 import "../components/Toolbar"
 import Toolbar from "../components/Toolbar";
-import './styling.css';
+// import './style.css';
 
-const Height = () => {
-    const [height, setHeight] = useState('');
+const Height = (props) => {
+    const onChangeHeight = (event) => {
+        props.onAddHeight(event.target.value);
+    };
     return (
         <IonPage>
             <Toolbar/>
@@ -37,13 +39,13 @@ const Height = () => {
                     <IonInput
                         type="number" 
                         placeholder='(cm)' 
-                        value={height} 
-                        onIonChange={(event) => setHeight(event.detail.value)}
+                        // value={height} 
+                        onIonChange={onChangeHeight}
                     />
                 </IonItem>
-                <p className='button'>
-                    <IonButton routerLink="/targetWeight" shape='round'>
-                        <IonText className='next-button'>Next</IonText>
+                <p className='next-button'>
+                    <IonButton routerLink="/TargetWeight" shape='round' >
+                        <IonText style={{color:"#573926"}}>Next</IonText>
                     </IonButton>
                 </p>
             </IonContent>

@@ -8,7 +8,7 @@ function Slide3() {
             <IonContent className="slide3">
                 <div className="slide">
                     <img src={Logo} alt="" />
-                    <p className="slide-text">Find the right <br/> workout for what <br/> you need</p>
+                    <p className="slide-text">Make suitable<br/> workout and great<br/> result</p>
                 </div>
             </IonContent>
         </IonPage>

@@ -1,4 +1,4 @@
-import {  IonButton, IonContent, IonHeader, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import {  IonButton, IonContent, IonHeader, IonItem, IonLabel, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import Card from '../components/Card';
 import Toolbar from '../components/Toolbar';
 import './Home.css';
@@ -7,9 +7,12 @@ import TabBar from '../components/TabBar';
 import Workouts from '../images/Workouts.jpg';
 import Meals from '../images/Meals.jpg';
 import Gyms from '../images/Gyms.jpg';
+import { useContext } from "react";
+import UserContext from "./context";
 
 
-const Home = () => {
+const Home = (nickname) => {
+  const { user, setUser } = useContext(UserContext);
   return (
     <IonPage >
       <Toolbar/>
@@ -19,11 +22,14 @@ const Home = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonTitle>
-          <IonText>
-            <p>Good Day,<br/><strong>Nickname!</strong></p>
-          </IonText>
-        </IonTitle>
+        <h1>Good Afternoon</h1>
+        {user.map((item, index) => (
+          <IonItem>
+            <IonLabel>
+            {item.nickname}
+            </IonLabel>
+          </IonItem>
+        ))}
         {CardData.map((data)=>{
             return(
               <Card

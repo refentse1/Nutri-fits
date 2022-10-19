@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import useFetch from "../hooks/useFetch";
+import './Workout.css';
 
 
 
@@ -21,17 +22,15 @@ function Workout() {
                 {workout &&(
                     <>
                         <IonRow className="ion-padding">
-                            <IonCol><iframe style={{width:"100%"}} src={workout.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></IonCol>
+                            <IonCol><iframe className="video"  src={workout.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></IonCol>
                         </IonRow>
                         <IonRow>
-                            <IonCol><IonText><IonTitle><p style={{textAlign:"center"}}>{workout.name}</p></IonTitle></IonText></IonCol>
+                            <IonCol><IonText><IonTitle><p className="wrkout--name">{workout.name}</p></IonTitle></IonText></IonCol>
                         </IonRow>
                         <IonRow>
                             <IonCol>
-                                <p style={{textAlign:"center"}}>
-                                 <IonButton  className="workout--start">Start</IonButton>
-                                </p>
-                            </IonCol>
+                                <div className="btn"><IonButton  className="workout--start">Start</IonButton></div>
+                            </IonCol>  
                         </IonRow>
                     </>
                 )}
