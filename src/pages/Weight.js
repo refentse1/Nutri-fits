@@ -26,6 +26,7 @@ const Weight = (props) => {
         <IonPage>
             <Toolbar/>
             <IonContent class="ion-padding">
+            {console.log(loggedInUser.registerEmail)}
                 <IonText className='profile'>My Profile</IonText>
                 <IonText>
                     <p className='motivate'>"slowly is the fastest way to<br/> get where you want to be"</p>

@@ -16,6 +16,8 @@ import {
 import Logo from "../images/Logo.png"
 import "../components/Toolbar.css"
 import Toolbar from '../components/Toolbar';
+import {useContext} from "react"
+import {AuthContext} from "../contexts/AuthContext"
 // import './style.css';
 
 const TargetWeight = (props) => {
