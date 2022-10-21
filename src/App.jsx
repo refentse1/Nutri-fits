@@ -53,34 +53,35 @@ const userData = {
 
 const App = () => {
 
-  const [user, setUser] = useState([
-    {
-      name: "suprise",
-      surname: "mehmet",
-      studentNo: "123456",
-      study: "3rd year",
-    },
-  ]);
+  // const [user, setUser] = useState([
+  //   {
+  //     name: "suprise",
+  //     surname: "mehmet",
+  //     studentNo: "123456",
+  //     study: "3rd year",
+  //   },
+  // ]);
   
-// User input for height, weight and target weight (Firestore)
-const [weight, setWeight] = useState('');
-const [height, setHeight] = useState('');
-const [targetWeight, setTargetWeight] = useState('');
+// // User input for height, weight and target weight (Firestore)
+// const [weight, setWeight] = useState('');
+// const [height, setHeight] = useState('');
+// const [targetWeight, setTargetWeight] = useState('');
 
-const addWeight = (weight) => {
-  setWeight(weight);
-};
-const addHeight = (Height) => {
-  setHeight(Height);
-};
-const addTargetWeight = (targetWeight) => {
-  setTargetWeight(targetWeight);
-};
+// const addWeight = (weight) => {
+//   setWeight(weight);
+// };
+// const addHeight = (Height) => {
+//   setHeight(Height);
+// };
+// const addTargetWeight = (targetWeight) => {
+//   setTargetWeight(targetWeight);
+// };
   
   
   return(
-  <IonApp >
-    <UserContext.Provider value={{ user: user, setUser: setUser }}>
+    <AuthContextProvider>
+       <IonApp >
+    {/* <UserContext.Provider value={{ user: user, setUser: setUser }}> */}
             <IonReactRouter>
               <IonRouterOutlet>
                 <Route exact path="/home">
@@ -140,8 +141,10 @@ const addTargetWeight = (targetWeight) => {
                 </Route>
               </IonRouterOutlet>
           </IonReactRouter>
-    </UserContext.Provider>
+    {/* </UserContext.Provider> */}
 </IonApp>
+    </AuthContextProvider>
+ 
 )};
 
 export default App;

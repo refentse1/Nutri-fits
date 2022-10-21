@@ -24,7 +24,7 @@ const AuthContextProvider = (props) => {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [weightInput, setWeightInput] = useState(0);
   const [heightInput, setHeightInput] = useState(0);
-  const [targetWeightInput, setTargetWeightInput] = useState(0)
+  const [targetWeightInput, setTargetWeightInput] = useState(0);
   const [users, setUsers] = useState([]);
   const [currentId, setCurrentId] = useState("");
   const userCollectionRef = collection(db, "userDetails");
@@ -112,7 +112,12 @@ const AuthContextProvider = (props) => {
         weightInput,
         setWeightInput,
         addCurrentWeight,
-        heightInput, setHeightInput, addHeight, targetWeightInput, setTargetWeightInput, addGoal,
+        heightInput,
+        setHeightInput,
+        addHeight,
+        targetWeightInput,
+        setTargetWeightInput,
+        addGoal,
         register,
       }}
     >
