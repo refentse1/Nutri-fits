@@ -8,11 +8,10 @@ import Workouts from '../images/Workouts.jpg';
 import Meals from '../images/Meals.jpg';
 import Gyms from '../images/Gyms.jpg';
 import { useContext } from "react";
-import UserContext from "./context";
 
 
-const Home = (nickname) => {
-  const { user, setUser } = useContext(UserContext);
+const Home = () => {
+ 
   return (
     <IonPage >
       <Toolbar/>
@@ -23,13 +22,8 @@ const Home = (nickname) => {
           </IonToolbar>
         </IonHeader>
         <h1>Good Afternoon</h1>
-        {user.map((item, index) => (
-          <IonItem>
-            <IonLabel>
-            {item.nickname}
-            </IonLabel>
-          </IonItem>
-        ))}
+        <p>{}</p>
+
         {CardData.map((data)=>{
             return(
               <Card
