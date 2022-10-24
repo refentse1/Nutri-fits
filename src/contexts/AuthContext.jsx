@@ -27,6 +27,7 @@ const AuthContextProvider = (props) => {
   const [registerName, setRegisterName] = useState("");
   const [registerSurname, setRegisterSurname] = useState("");
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [userId, setUserId] = useState("");
   const [weightInput, setWeightInput] = useState(0);
   const [heightInput, setHeightInput] = useState(0);
   const [targetWeightInput, setTargetWeightInput] = useState(0);
@@ -88,10 +89,10 @@ const AuthContextProvider = (props) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      const userId = userCredential.uid
+      // setUserId(userCredential.uid)
       console.log(user)
-      const found = users.find(item => item.id = userId)
-      console.log("User found", found)
+      // const found = users.find(item => item.id = userId)
+      // console.log("User found", found)
       window.location.pathname = "/home"
     })
     .catch((error) => {
@@ -153,7 +154,8 @@ const AuthContextProvider = (props) => {
         loginPassword,
         setLoginPassword,
         login,
-        logOut
+        logOut,
+        userId
       }}
     >
       {props.children}
