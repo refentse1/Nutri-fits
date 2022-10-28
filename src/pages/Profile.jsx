@@ -11,6 +11,7 @@ import {
   helpOutline,
   notificationsOutline,
   createOutline,
+  logOutOutline
 } from "ionicons/icons";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
@@ -21,6 +22,7 @@ import { AuthContext } from "../contexts/AuthContext";
 function Profile(props) {
 
   const { logOut} = useContext(AuthContext);
+  
 
   return (
     <IonPage>
@@ -42,7 +44,7 @@ function Profile(props) {
         <IonItem lines="none" onClick={logOut}>
           <IonLabel>
             <p>
-              <IonIcon icon={createOutline} />
+              <IonIcon icon={logOutOutline} />
               Logout
             </p>
           </IonLabel>

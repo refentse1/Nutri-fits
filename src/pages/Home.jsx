@@ -60,7 +60,7 @@ const Home = () => {
     }
 
     getDetails()
-  }, loggedInUser)
+  }, [])
 
   return (
     <IonPage>
@@ -71,8 +71,7 @@ const Home = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <h1>Good Afternoon</h1>
-        <p>{userDetails.name}</p>
+        <h1>Hi! {userDetails.name}</h1>
 
         {CardData.map((data) => {
           return (
