@@ -30,7 +30,6 @@ const Weight = (props) => {
   const onChangeWeight = (e) => {
             setWeightInput(e.target.value);
     }
-    
 
   return (
     <IonPage>

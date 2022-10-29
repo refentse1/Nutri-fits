@@ -10,25 +10,22 @@ import {
     IonPage,
     IonToolbar
   } from "@ionic/react";
-  import { useContext, useEffect, useState } from "react";
-  import { useHistory } from "react-router";
-  import UserContext from "./context";
   import "./Setupscreen.css"
 
   const Setupscreen = (props) => {
-    const { user, setUser } = useContext(UserContext);
-    const history = useHistory();
+    // const { user, setUser } = useContext(UserContext);
+    // const history = useHistory();
   
-    const [formData, setFormData] = useState({});
+    // const [formData, setFormData] = useState({});
   
-    function handleSubmit() {
-      setUser([...user, formData]);
-      setFormData({});
-      history.push("/home", { direction: "forward" }); // go to home page
-    }
-    useEffect(() => {
-      console.log("Form Data: ", formData);
-    }, [formData]);
+    // function handleSubmit() {
+    //   setUser([...user, formData]);
+    //   setFormData({});
+    //   history.push("/home", { direction: "forward" }); 
+    // }
+    // useEffect(() => {
+    //   console.log("Form Data: ", formData);
+    // }, [formData]);
   
     return (
       <IonPage>
@@ -55,14 +52,22 @@ import {
                 color="medium"
                   className="Nickname"
                     type="text"
+                  />
+                  {/* <IonInput
+                color="medium"
+                  className="Nickname"
+                    type="text"
                     onIonInput={(e) =>
                       setFormData({ ...formData, nickname: e.target.value })
                     }
-                  />
+                  /> */}
                 </IonItem>
-                <IonButton className="next-bt"shape="round" size="small" onClick={handleSubmit}>
+                <IonButton routerLink="/home" className="next-bt"shape="round" size="small">
                   Next
                 </IonButton>
+                {/* <IonButton className="next-bt"shape="round" size="small" onClick={handleSubmit}>
+                  Next
+                </IonButton> */}
               </IonContent>
       </IonPage>
     );
