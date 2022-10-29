@@ -11,13 +11,17 @@ import {
   helpOutline,
   notificationsOutline,
   createOutline,
+  logOutOutline
 } from "ionicons/icons";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import "./Profile.css";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 function Profile(props) {
 
+  const { logOut} = useContext(AuthContext);
   
 
   return (
@@ -36,6 +40,15 @@ function Profile(props) {
           <p>{props.username}</p>
           <p>{props.email}</p>
         </IonText>
+
+        <IonItem lines="none" onClick={logOut}>
+          <IonLabel>
+            <p>
+              <IonIcon icon={logOutOutline} />
+              Logout
+            </p>
+          </IonLabel>
+        </IonItem>
 
         <IonItem lines="none">
           <IonLabel>

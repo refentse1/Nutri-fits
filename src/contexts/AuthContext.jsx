@@ -2,6 +2,8 @@ import { createContext, useState, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
 } from "firebase/auth";
 import { auth } from "../config/firebase-config";
 import { db } from "../config/firebase-config";
@@ -13,21 +15,26 @@ import {
   doc,
   updateDoc,
 } from "firebase/firestore";
+import { useHistory } from "react-router-dom";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [registerName, setRegisterName] = useState("");
   const [registerSurname, setRegisterSurname] = useState("");
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [userId, setUserId] = useState("");
   const [weightInput, setWeightInput] = useState(0);
   const [heightInput, setHeightInput] = useState(0);
   const [targetWeightInput, setTargetWeightInput] = useState(0);
   const [users, setUsers] = useState([]);
   const [currentId, setCurrentId] = useState("");
   const userCollectionRef = collection(db, "userDetails");
+  const navigate = useHistory();
 
   //Fetching user data from firestore
   useEffect(() => {
@@ -65,7 +72,7 @@ const AuthContextProvider = (props) => {
           //addDoc(userCollectionRef, {name: registerName, surname: registerSurname, id: uid, email: user.email})
           console.log(uid);
           console.log(user.email);
-          setLoggedInUser(user);
+          window.location.pathname = "/weight";
         } else {
           // User is signed out
           console.log("failed");
@@ -75,6 +82,29 @@ const AuthContextProvider = (props) => {
       console.log(error.message);
     }
   };
+
+  //Sign in user using email and password
+  const login = () => {
+    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // setUserId(userCredential.uid)
+      console.log(user)
+      // const found = users.find(item => item.id = userId)
+      // console.log("User found", found)
+      window.location.pathname = "/home"
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  }
+
+  const logOut = () => {
+    auth.signOut()
+    window.location.pathname = "/login"
+  }
 
   const addCurrentWeight = async () => {
     const documentRef = doc(db, "userDetails", currentId);
@@ -119,6 +149,13 @@ const AuthContextProvider = (props) => {
         setTargetWeightInput,
         addGoal,
         register,
+        loginEmail,
+        setLoginEmail,
+        loginPassword,
+        setLoginPassword,
+        login,
+        logOut,
+        userId
       }}
     >
       {props.children}
