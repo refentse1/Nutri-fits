@@ -19,17 +19,7 @@ import {
   import "./Styles.css";
   
   function Register() {
-    const {
-      setRegisterEmail,
-      setRegisterPassword,
-      registerEmail,
-      registerPassword,
-      registerName,
-      setRegisterName,
-      registerSurname,
-      setRegisterSurname,
-      register,
-    } = useContext(AuthContext);
+    const {setRegisterEmail,setRegisterPassword,registerEmail,registerPassword,registerName,setRegisterName,registerSurname,setRegisterSurname,register,} = useContext(AuthContext);
   
     const nameInput = (e) => {
       setRegisterName(e.target.value);

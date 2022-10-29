@@ -22,13 +22,11 @@ const Home = (nickname) => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <h1>Good Afternoon</h1>
+        <IonTitle className='ion-padding'>Hello</IonTitle>
         {user.map((item, index) => (
-          <IonItem>
-            <IonLabel>
-            {item.nickname}
-            </IonLabel>
-          </IonItem>
+          
+            <IonTitle>{item.nickname}</IonTitle>
+          
         ))}
         {CardData.map((data)=>{
             return(
