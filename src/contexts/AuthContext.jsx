@@ -46,30 +46,9 @@ const AuthContextProvider = (props) => {
     console.log(users);
     };
 
-    // const getDetails = async () => {
-          
-    //   const docRef = doc(db, "userDetails", userId);
-    //   const docSnap = await getDoc(docRef);
-
-    //   if (docSnap.exists()) {
-    //     return setUserDetails(docSnap.data()) 
-    //     console.log(userDetails)
-        
-
-    //   } else {
-    //     // doc.data() will be undefined in this case
-    //     console.log("No such document!");
-    //   }
-    // }
-
-
     getUsers();
-    // getDetails()
-  }, []);
 
-  //   const addDetails = async () => {
-  //     await addDoc(userCollectionRef, {name: registerName, surname: registerSurname, id: })
-  //   }
+  }, []);
 
   const register = async () => {
     try {
@@ -90,13 +69,12 @@ const AuthContextProvider = (props) => {
             surname: registerSurname,
             email: user.email
           });
-          //addDoc(userCollectionRef, {name: registerName, surname: registerSurname, id: uid, email: user.email})
+
           console.log(user.uid);
-          setCurrentId(user.uid);
           console.log(user.email);
           window.location.pathname = "/weight";
         } else {
-          // User is signed out
+          // User is not logged in
           console.log("failed");
         }
       });
