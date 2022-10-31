@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonText, IonButton } from "@ionic/react";
+import { IonContent, IonPage, IonText, IonButton, IonHeader, IonTitle } from "@ionic/react";
 import { useState } from "react";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
@@ -37,18 +37,21 @@ function Progress(props) {
     <IonPage>
       <Toolbar />
       <IonContent fullscreen className="progress-page ion-padding">
-        <IonText className="heading">
-          <h2>Progress</h2>
-        </IonText>
-
+        <IonTitle style={{color:"#FE8235",marginTop:"20px", fontSize:"20px", fontWeight:"600"}}> Progress </IonTitle>
         <div className="stats-container">
+        <IonText>
+          <p className="motivate">
+            "slowly is the fastest way to
+            <br /> get where you want to be"
+          </p>
+        </IonText>
           <IonText className="inapp-text">
-            <h3>You've wroked out for</h3>
+            <p>You've worked out for: </p>
             <p>{props.workHours}</p>
           </IonText>
 
           <IonText className="inapp-text">
-            <h3>Current weight</h3>
+            <h4 style={{color: "#FE8235"}}>Current weight</h4>
             <input
               className="progress-input"
               type="number"
@@ -58,7 +61,7 @@ function Progress(props) {
           </IonText>
 
           <IonText className="inapp-text">
-            <h3>Height</h3>
+            <h4 style={{color: "#FE8235"}}>Height</h4>
             <input
               className="progress-input"
               type="number"
@@ -68,17 +71,17 @@ function Progress(props) {
           </IonText>
 
           <IonText className="inapp-text">
-            <h3>Burned calories</h3>
+            <h4 style={{color: "#FE8235"}}>Burned calories: </h4>
             <p>{props.burnedCalories}</p>
           </IonText>
 
           <IonText className="inapp-text">
-            <h3>Starting weight</h3>
+            <h4 style={{color: "#FE8235"}}>Starting weight: </h4>
             <p>{props.weight}</p>
           </IonText>
 
           <IonText className="inapp-text">
-            <h3>BMI</h3>
+            <h4 style={{color: "#FE8235"}}>BMI</h4>
             <p>{bmi}</p>
           </IonText>
 
@@ -88,9 +91,9 @@ function Progress(props) {
               <div className="bar" style={{ width: `${percentage}%` }}></div>
             </div>
           </div>
-
+          <br></br>
           <IonButton className="progress-btn" shape="round" onClick={progress}>
-            Save changes
+            Save
           </IonButton>
         </div>
       </IonContent>

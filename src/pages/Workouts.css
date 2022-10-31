@@ -10,6 +10,16 @@ ion-col > div.workouts--category{
 }
 .workouts--text{
     padding-left: 5px;
+    font-family: 'Domine';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 22px;
+
+    text-align: center;
+    letter-spacing: -0.408px;
+
+    color: #573926;
 }
 .workouts--category--name{
     background-color: antiquewhite;

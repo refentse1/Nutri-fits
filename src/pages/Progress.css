@@ -6,17 +6,18 @@ ion-text.inapp-text{
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-    color: #FE8235;
+    font-size: 13px;
+    line-height: 13px;
+    color: #573926;
+    /* color: #FE8235; */
 }
 
 ion-text.heading{
     font-family: 'Epilogue';
     font-style: normal;
     font-weight: 800;
-    font-size: 22px;
-    line-height: 23px;
+    font-size: 13px;
+    line-height: 13px;
     color: #573926;
     text-align: center;
 }

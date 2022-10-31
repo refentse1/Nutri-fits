@@ -1,5 +1,5 @@
 import { Geolocation } from "@capacitor/geolocation";
-import { IonHeader, IonIcon, IonCol, IonToolbar, IonItem, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonContent, IonTitle, IonPage } from "@ionic/react";
+import { IonHeader, IonIcon, IonCol, IonText, IonItem, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonContent, IonTitle, IonPage } from "@ionic/react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import apikey from "../resources/Api";
@@ -48,27 +48,30 @@ const NearbyGyms = ()=>{
         <IonPage>
             <Toolbar/>
             <IonContent >
-            <IonToolbar>
-            </IonToolbar>
-            <IonTitle style={{color:"#FF0000", fontSize:"20px", fontWeight:"600"}}>Find Gyms near you!</IonTitle>
+            
+            <IonTitle style={{color:"#FE8235",marginTop:"25px", fontSize:"20px", fontWeight:"600"}}>Gyms near you!</IonTitle>
+            <IonCol>
+            <IonText><div className="meals--text">“Success usually comes to those who are too busy to be looking for it.” -Henry David Thoreau</div></IonText>
+            </IonCol>
     
 {       
         gyms.map((gym, index) => (
-            <IonCard >
-        <IonCardHeader>
-            <IonCardTitle className="gym-name">{gym.name}</IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent>
-        <img
-                  style={gym.photos && { height: "30vh", width: "100%", borderRadius:"20px" }}
+          <IonCard>
+            <IonCardHeader>
+      <IonCardTitle className="gym-name">{gym.name}</IonCardTitle>
+      </IonCardHeader>
+
+      <img
+                  style={gym.photos && { height: "30vh", width: "100%", borderColor:"#F09E54", borderWidth:"4px"}} alt="No picture"
                   src={
                     gym.photos &&
                     `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${gym.photos.map(
                       (photo) => photo.photo_reference
                     )}&key=AIzaSyAs6URY0FrsM3w9FnbEdFfKxrOAtxAh4dI`
                   }/>
-        </IonCardContent>
-        <IonItem className="gym-address">
+      
+      
+      <IonItem className="gym-address">
             {gym.vicinity}
         </IonItem>
         <IonItem>
@@ -82,7 +85,7 @@ const NearbyGyms = ()=>{
                               color: "green",
                             }}
                           >
-                            NOW OPEN
+                             Open
                           </p>
                         ) : (
                           <p
@@ -93,16 +96,18 @@ const NearbyGyms = ()=>{
                               color: "Red",
                             }}
                           >
-                            CLOSED
+                            Closed
                           </p>
                         )}
         </IonItem>
-        <IonItem>
+        <IonCol>
         <IonIcon color="warning" icon={star}/>
                           {gym.rating}
-        </IonItem>
+        </IonCol>
         
-        </IonCard>
+      
+    </IonCard>
+        
         ))
         
     }    
