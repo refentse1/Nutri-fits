@@ -72,7 +72,9 @@ const AuthContextProvider = (props) => {
 
           console.log(user.uid);
           console.log(user.email);
+
           window.location.pathname = "/weight";
+          
         } else {
           // User is not logged in
           console.log("failed");
