@@ -12,6 +12,8 @@ function Progress(props) {
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState(0);
 
+  
+
   //Handling current weight input
   const handleCurrentWeight = (e) => {
     setCurrentWeight(e.target.value);
