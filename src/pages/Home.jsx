@@ -28,25 +28,13 @@ const Home = () => {
   const [userDetails, setUserDetails] = useState({})
   
   const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      setLoggedInUser(user.uid);
-      console.log("logged in user", loggedInUser);
-      // ...
 
-    } else {
-      // User is signed out
-      window.location.pathname = "/login";
-      // ...
-    }
-  });
 
   useEffect(() => {
-    const getDetails = async () => {
+    
+    const getDetails = async (userId) => {
       
-      const docRef = doc(db, "userDetails", loggedInUser);
+      const docRef = doc(db, "userDetails", userId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -59,7 +47,23 @@ const Home = () => {
       }
     }
 
-    getDetails()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        setLoggedInUser(user.uid);
+        const userId = user.uid
+        console.log("logged in user", loggedInUser);
+        getDetails(userId)
+        // ...
+  
+      } else {
+        // User is signed out
+        window.location.pathname = "/login";
+        // ...
+      }
+    });
+
   }, [])
 
   return (
