@@ -59,27 +59,44 @@ const AuthContextProvider = (props) => {
       );
       console.log(user);
 
-      //Getting logged user ID
-      onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(auth, async (user) => {
         if (user) {
           const uid = user.uid;
-          
           setDoc(doc(db, "userDetails", uid), {
-            name: registerName,
-            surname: registerSurname,
-            email: user.email
-          });
+                   name: registerName,
+                   surname: registerSurname,
+                   email: user.email
+                });
 
-          console.log(user.uid);
-          console.log(user.email);
+                window.location.pathname = "./weight"
 
-          window.location.pathname = "/weight";
-          
         } else {
-          // User is not logged in
+          // User is signed out
           console.log("failed");
         }
       });
+
+      //Getting logged user ID
+      // onAuthStateChanged(auth, (user) => {
+      //   if (user) {
+      //     const uid = user.uid;
+          
+      //     setDoc(doc(db, "userDetails", uid), {
+      //       name: registerName,
+      //       surname: registerSurname,
+      //       email: user.email
+      //     });
+
+      //     console.log(user.uid);
+      //     console.log(user.email);
+
+      //     window.location.pathname = "/weight";
+          
+      //   } else {
+      //     // User is not logged in
+      //     console.log("failed");
+      //   }
+      // });
     } catch (error) {
       console.log(error.message);
     }

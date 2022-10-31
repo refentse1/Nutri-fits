@@ -11,6 +11,24 @@ import {
     IonRow,
     IonTitle,
   } from "@ionic/react";
+  import {
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut
+  } from "firebase/auth";
+  import { auth } from "../config/firebase-config";
+  import { db } from "../config/firebase-config";
+  import {
+    collection,
+    getDocs,
+    getDoc,
+    addDoc,
+    setDoc,
+    doc,
+    updateDoc,
+  } from "firebase/firestore";
+  import { useHistory } from "react-router-dom";
   import Toolbar from "../components/Toolbar";
   import { AuthContext } from "../contexts/AuthContext";
   import { useContext } from "react";
@@ -19,7 +37,38 @@ import {
   import "./Styles.css";
   
   function Register() {
-    const {setRegisterEmail,setRegisterPassword,registerEmail,registerPassword,registerName,setRegisterName,registerSurname,setRegisterSurname,register,} = useContext(AuthContext);
+    const {setRegisterEmail,setRegisterPassword,registerEmail,registerPassword,registerName,setRegisterName,registerSurname,setRegisterSurname} = useContext(AuthContext);
+    const navigate = useHistory()
+
+    const register = async () => {
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          registerEmail,
+          registerPassword
+        );
+        console.log(user);
+  
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            const uid = user.uid;
+            setDoc(doc(db, "userDetails", uid), {
+                     name: registerName,
+                     surname: registerSurname,
+                     email: user.email
+                  });
+  
+                  navigate.push("./weight")
+  
+          } else {
+            // User is signed out
+            console.log("failed");
+          }
+        });
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
   
     const nameInput = (e) => {
       setRegisterName(e.target.value);
