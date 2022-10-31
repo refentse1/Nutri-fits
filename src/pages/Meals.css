@@ -2,6 +2,7 @@ ion-col > div.meals--category{
     padding: 2.1px;
     border-radius: 5px;
     text-align: center;
+    font-size: 12px;
 }
 .meals--title{
     color: red;
