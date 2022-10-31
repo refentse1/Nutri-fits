@@ -27,9 +27,9 @@ const {data:workouts, isLoading, Error} = useFetch('http://localhost:8000/workou
                             <h2 className="workouts--title">Let's Go</h2>
                         </IonCol>
                     </IonRow>
-                    <IonRow>
+                   <IonRow>
                         <IonCol>
-                            <IonText ><div className="workouts--text">We are here for you! Here are some workouts that will help you get in better shape</div></IonText>
+                            <IonText ><div className="workouts--text">“Your Body Can Stand Almost Anything… it’s just your mind you have to convince.”</div> </IonText>
                         </IonCol>
                     </IonRow>
 
