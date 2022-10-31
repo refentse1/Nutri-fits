@@ -29,7 +29,7 @@ function Meals() {
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonText><div className="meals--text">Motivation for eating right</div></IonText>
+                            <IonText><div className="meals--text">“Healthy eating is a way of life, so it’s important to establish routines that are simple, realistically, and ultimately livable.” – Horace</div></IonText>
                         </IonCol>
                     </IonRow>
                     {Error && <div><IonRow><IonCol><IonText ><p style={{textAlign:"Center",fontWeight:"bold"}}>{Error}</p></IonText></IonCol></IonRow></div> }
