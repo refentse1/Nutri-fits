@@ -50,57 +50,6 @@ const AuthContextProvider = (props) => {
 
   }, []);
 
-  const register = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        registerEmail,
-        registerPassword
-      );
-      console.log(user);
-
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          const uid = user.uid;
-          setDoc(doc(db, "userDetails", uid), {
-                   name: registerName,
-                   surname: registerSurname,
-                   email: user.email
-                });
-
-                window.location.pathname = "./weight"
-
-        } else {
-          // User is signed out
-          console.log("failed");
-        }
-      });
-
-      //Getting logged user ID
-      // onAuthStateChanged(auth, (user) => {
-      //   if (user) {
-      //     const uid = user.uid;
-          
-      //     setDoc(doc(db, "userDetails", uid), {
-      //       name: registerName,
-      //       surname: registerSurname,
-      //       email: user.email
-      //     });
-
-      //     console.log(user.uid);
-      //     console.log(user.email);
-
-      //     window.location.pathname = "/weight";
-          
-      //   } else {
-      //     // User is not logged in
-      //     console.log("failed");
-      //   }
-      // });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   //Sign in user using email and password
   const login = () => {
@@ -191,7 +140,6 @@ const AuthContextProvider = (props) => {
         targetWeightInput,
         setTargetWeightInput,
         addGoal,
-        register,
         loginEmail,
         setLoginEmail,
         loginPassword,
