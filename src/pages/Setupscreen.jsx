@@ -33,31 +33,30 @@ const Setupscreen = () => {
 
   const {nickname,setNickName,addNickName} = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   console.log("Form Data: ", formData);
-  // }, [formData]);
-  const Snap = async () => {
-    const cameraResult = await Camera.getPhoto({
+  const takePhoto = async () => {
+    const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
       resultType: CameraResultType.Uri
     });
+  
     // image.webPath will contain a path that can be set as an image src.
     // You can access the original file using image.path, which can be
     // passed to the Filesystem API to read the raw data of the image,
     // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-    setImage (cameraResult.webPath);
+    let imageUrl = image.webPath;
   
     // Can be set to the src of an image now
-    // imageElement.src = imageUrl;
-    console.log(image)
+    setImage(imageUrl);
+    console.log(image.path)
   };
+
   return (
     <IonContent className="profile-page">
   <div>
       <img  className="img-container" src={image}></img>
   </div>
-  < FaCamera className="iconn" onClick={()=>Snap()} 
+  < FaCamera className="iconn" onClick={takePhoto} 
     color="#573926"
     size="2em" 
     title="Take picture or choos from your photos "/>
