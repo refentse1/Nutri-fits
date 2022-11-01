@@ -21,7 +21,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function Profile(props) {
 
-  const { logOut} = useContext(AuthContext);
+  const { logOut, GetUser, userDetails} = useContext(AuthContext);
   
 
   return (
@@ -37,8 +37,8 @@ function Profile(props) {
         </div>
 
         <IonText className= "inapp-text">
-          <p>{props.username}</p>
-          <p>{props.email}</p>
+          <p>{userDetails.name} {userDetails.surname}</p>
+          <p>{userDetails.email}</p>
         </IonText>
 
         <IonItem lines="none" onClick={logOut}>

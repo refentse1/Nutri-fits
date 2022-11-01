@@ -22,49 +22,12 @@ import { db } from "../config/firebase-config";
 import { useContext, useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { async } from "@firebase/util";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
-  const [loggedInUser, setLoggedInUser] = useState("");
-  const [userDetails, setUserDetails] = useState({})
-  
-  const auth = getAuth();
+const {GetUser,userDetails} = useContext(AuthContext);
 
-
-  useEffect(() => {
-    
-    const getDetails = async (userId) => {
-      
-      const docRef = doc(db, "userDetails", userId);
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        return setUserDetails(docSnap.data()) 
-        
-
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    }
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        setLoggedInUser(user.uid);
-        const userId = user.uid
-        console.log("logged in user", loggedInUser);
-        getDetails(userId)
-        // ...
-  
-      } else {
-        // User is signed out
-        window.location.pathname = "/login";
-        // ...
-      }
-    });
-
-  }, [])
+GetUser();
 
   return (
     <IonPage>
@@ -75,7 +38,7 @@ const Home = () => {
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <h1>Hi! {userDetails.name}</h1>
+        <h1>Hi! {userDetails.nickname}</h1>
 
         {CardData.map((data) => {
           return (

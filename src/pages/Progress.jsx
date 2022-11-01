@@ -1,7 +1,8 @@
 import { IonContent, IonPage, IonText, IonButton, IonHeader, IonTitle } from "@ionic/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
+import { AuthContext } from "../contexts/AuthContext";
 import "./Progress.css";
 
 function Progress(props) {
@@ -12,7 +13,9 @@ function Progress(props) {
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState(0);
 
-  
+  const {GetUser,userDetails} = useContext(AuthContext);
+
+  GetUser();
 
   //Handling current weight input
   const handleCurrentWeight = (e) => {
@@ -68,7 +71,7 @@ function Progress(props) {
               className="progress-input"
               type="number"
               onChange={handleHeight}
-              value={height}
+              value={userDetails.height}
             />
           </IonText>
 
@@ -79,7 +82,7 @@ function Progress(props) {
 
           <IonText className="inapp-text">
             <h4 style={{color: "#FE8235"}}>Starting weight: </h4>
-            <p>{props.weight}</p>
+            <p>{userDetails.weight}</p>
           </IonText>
 
           <IonText className="inapp-text">
@@ -87,7 +90,7 @@ function Progress(props) {
             <p>{bmi}</p>
           </IonText>
 
-          <div className="goal">Goal: {goalWeight}</div>
+          <div className="goal">Goal: {userDetails.goalWeight}</div>
           <div className="progress-container">
             <div className="progress-bar">
               <div className="bar" style={{ width: `${percentage}%` }}></div>

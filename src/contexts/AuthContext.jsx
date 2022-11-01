@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
+  getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut
@@ -37,6 +38,9 @@ const AuthContextProvider = (props) => {
   const [userDetails, setUserDetails] = useState({})
   const userCollectionRef = collection(db, "userDetails");
   const navigate = useHistory();
+  const [nickname,setNickName] = useState('');
+  const [loggedInUser, setLoggedInUser] = useState("");
+  const auth = getAuth();
 
   //Fetching user data from firestore
   useEffect(() => {
@@ -120,6 +124,63 @@ const AuthContextProvider = (props) => {
     });
   };
 
+  // Update Current User's NickName and Profile Image
+  const addNickName = async () => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        const documentRef = doc(db, "userDetails", uid);
+      await updateDoc(documentRef, {nickname: nickname});
+      window.location.pathname = "/home";
+      } else {
+        // User is signed out
+        console.log("failed");
+      }
+    });
+  };
+
+  // Get the current User
+  const GetUser = ()=>{
+      
+    useEffect(() => {
+    
+      const getDetails = async (userId) => {
+        
+        const docRef = doc(db, "userDetails", userId);
+        const docSnap = await getDoc(docRef);
+  
+        if (docSnap.exists()) {
+          return setUserDetails(docSnap.data()) 
+          
+  
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      }
+  
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          setLoggedInUser(user.uid);
+          const userId = user.uid
+          console.log("logged in user", loggedInUser);
+          getDetails(userId)
+          // ...
+    
+        } else {
+          // User is signed out
+          window.location.pathname = "/login";
+          // ...
+        }
+      });
+  
+    }, [])
+
+  }
+
+
   return (
     <AuthContext.Provider
       value={{
@@ -147,7 +208,16 @@ const AuthContextProvider = (props) => {
         setLoginPassword,
         login,
         logOut,
-        userId
+        userId,
+        nickname,
+        setNickName,
+        addNickName,
+        getAuth,
+        loggedInUser,
+        setLoggedInUser,
+        userDetails,
+        setUserDetails,
+        GetUser
       }}
     >
       {props.children}

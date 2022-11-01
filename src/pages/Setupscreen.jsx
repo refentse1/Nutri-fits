@@ -24,11 +24,15 @@ import{
   doc,
   onSnapshot,
 } from "firebase/firestore"
+import { AuthContext } from "../contexts/AuthContext";
 const Setupscreen = () => {
   const history = useHistory();
   const [Addnickname,setAddNickname]=useState([]);
   const [newNickname,setNewNickname]=useState([]);
   const[image,setImage]=useState("");
+
+  const {nickname,setNickName,addNickName} = useContext(AuthContext);
+
   // useEffect(() => {
   //   console.log("Form Data: ", formData);
   // }, [formData]);
@@ -48,17 +52,6 @@ const Setupscreen = () => {
     // imageElement.src = imageUrl;
     console.log(image)
   };
-  function handleSubmit() {
-    addDoc(nicknameRef,{
-      Nickname:newNickname,
-    }).then((refrence)=>{
-      console.log("Nickname moved")
-    }).catch((error)=>{
-      console.log(error)
-    })
-    setAddNickname("")
-    history.push("/home",{ direction: "forward" }); // go to home page
-  }
   return (
     <IonContent className="profile-page">
   <div>
@@ -82,11 +75,11 @@ const Setupscreen = () => {
       color="medium"
          className="Nickname"
           type="text"
-          onIonChange={(e)=>setNewNickname(e.target.value)}
-          value={newNickname}
+          onIonChange={(e)=>setNickName(e.target.value)}
+          value={nickname}
         />
       </IonItem>
-      <IonButton className="next-bt"shape="round" size="small" onClick={handleSubmit}>
+      <IonButton className="next-bt"shape="round" size="small" onClick={addNickName}>
         Next
       </IonButton>
     </IonContent>
