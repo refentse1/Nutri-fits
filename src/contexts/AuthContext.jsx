@@ -111,7 +111,8 @@ const AuthContextProvider = (props) => {
       if (user) {
         const uid = user.uid;
         const documentRef = doc(db, "userDetails", uid);
-    await updateDoc(documentRef, {goalWeight: targetWeightInput});
+      await updateDoc(documentRef, {goalWeight: targetWeightInput});
+      window.location.pathname = "/setupscreen";
       } else {
         // User is signed out
         console.log("failed");

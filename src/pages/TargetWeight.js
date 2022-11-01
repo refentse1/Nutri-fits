@@ -54,7 +54,7 @@ const TargetWeight = (props) => {
           />
         </IonItem>
         <p className="next-button">
-          <IonButton routerLink="/setupscreen" shape="round" onClick={addGoal}>
+          <IonButton  shape="round" onClick={addGoal}>
             <IonText style={{ color: "#573926" }}>Next</IonText>
           </IonButton>
         </p>
