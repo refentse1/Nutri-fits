@@ -1,7 +1,9 @@
 import { IonAccordion, IonAccordionGroup, IonCard, IonCardContent, IonCol, IonGrid, IonItem, IonLabel, IonRow, IonText } from "@ionic/react";
+import { useHistory } from "react-router";
 import "./MealCard.css"
 
 function MealCard({meal,ingredients,mealImg,id}) {
+
     return ( 
         <IonCard className="container" key={id} routerLink={`/meal/${id}`}>
             <img className="card--bg" src={mealImg} alt="cardBG.jpg" />

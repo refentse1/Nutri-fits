@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -41,13 +41,15 @@ const AuthContextProvider = (props) => {
   const [nickname,setNickName] = useState('');
   const [loggedInUser, setLoggedInUser] = useState("");
   const auth = getAuth();
-
+  const [meals,setMeals] = useState([]);
+  const mealCollectionRef = collection(db, "meals");
+  const [meal,setMeal] = useState();
   //Fetching user data from firestore
   useEffect(() => {
    const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    console.log(users);
+    // console.log(users);
     };
 
     getUsers();
@@ -177,8 +179,22 @@ const AuthContextProvider = (props) => {
       });
   
     }, [])
-
   }
+
+  // Get the meals on the db
+  const GetMeals = () =>{
+    useEffect(() => {
+      const getMeals = async () => {
+         const mealData = await getDocs(mealCollectionRef);
+         setMeals(mealData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      //  console.log(meals);
+       };
+       getMeals();
+   
+     }, []);
+  }
+
+
 
 
   return (
@@ -217,7 +233,9 @@ const AuthContextProvider = (props) => {
         setLoggedInUser,
         userDetails,
         setUserDetails,
-        GetUser
+        GetUser,
+        GetMeals,
+        meals,
       }}
     >
       {props.children}

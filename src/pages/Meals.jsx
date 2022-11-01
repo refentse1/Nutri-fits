@@ -1,16 +1,18 @@
 import { IonCol, IonContent, IonGrid, IonPage, IonRow, IonText, IonTitle } from "@ionic/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MealCard from "../components/MealCard";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
+import { AuthContext } from "../contexts/AuthContext";
 import useFetch from "../hooks/useFetch";
 import "./Meals.css"
 
 
 function Meals() {
 
-    const {data:meals, isLoading, Error} = useFetch('http://localhost:8000/meals')
+    const {GetMeals,meals} = useContext(AuthContext);
 
+    GetMeals();
 
     return ( 
         <IonPage>
@@ -32,17 +34,15 @@ function Meals() {
                             <IonText><div className="meals--text">“Healthy eating is a way of life, so it’s important to establish routines that are simple, realistically, and ultimately livable.” – Horace</div></IonText>
                         </IonCol>
                     </IonRow>
-                    {Error && <div><IonRow><IonCol><IonText ><p style={{textAlign:"Center",fontWeight:"bold"}}>{Error}</p></IonText></IonCol></IonRow></div> }
-                    {isLoading && <div><IonRow><IonCol><IonText ><p style={{textAlign:"Center",fontWeight:"bold"}}>Loading...</p></IonText></IonCol></IonRow></div>}
                     {meals && meals.map((meal)=>{
                         return(
                             <IonRow>
                             <IonCol>
                                 <MealCard
-                                    id={meal.id}
-                                    meal={meal.meal}
-                                    mealImg = {meal.img}
-                                    ingredients = {meal.ingredients}
+                                    id = {meal.id}
+                                    meal={meal.name}
+                                    mealImg = {meal.image}
+                                    ingredients = {meal.ingredient}
                                     mealCardColor = {meal.color}
                                     path = {meal.path}
                                 />
