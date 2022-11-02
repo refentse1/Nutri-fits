@@ -10,6 +10,8 @@ import {
     IonPage,
     IonRow,
     IonTitle,
+    IonText,
+    IonLoading
   } from "@ionic/react";
   import {
     createUserWithEmailAndPassword,
@@ -37,16 +39,19 @@ import {
   import "./Styles.css";
   
   function Register() {
-    const {setRegisterEmail,setRegisterPassword,registerEmail,registerPassword,registerName,setRegisterName,registerSurname,setRegisterSurname} = useContext(AuthContext);
+    const {setRegisterEmail,setRegisterPassword,registerEmail,registerPassword,registerName,setRegisterName,registerSurname,setRegisterSurname, status, setStatus} = useContext(AuthContext);
     const navigate = useHistory()
 
     const register = async () => {
+      
       try {
+        setStatus({loading: true, error: false}); //Pule modification
         const user = await createUserWithEmailAndPassword(
           auth,
           registerEmail,
           registerPassword
         );
+        setStatus({ loading: false, error: false}); //Pule modification
         console.log(user);
   
         onAuthStateChanged(auth, async (user) => {
@@ -66,6 +71,7 @@ import {
           }
         });
       } catch (error) {
+        setStatus({loading: false, error: true}); //Pule modification
         console.log(error.message);
       }
     };
@@ -130,6 +136,17 @@ import {
                 onIonChange={passwordInput}
               ></IonInput>
             </IonItem>
+
+            {/* Pule modification */}
+
+            {status.error && 
+              <p style={{marginLeft:"15px"}}>
+                <IonText color="danger" >Invalid Credentials</IonText>
+              </p>
+            }
+
+            {/* Pule modification */}
+
           </IonGrid>
           <p style={{ textAlign: "center" }}>
             <IonButton
@@ -142,6 +159,7 @@ import {
               Register
             </IonButton>
           </p>
+          <IonLoading isOpen={status.loading} />
         </IonContent>
       </IonPage>
     );
