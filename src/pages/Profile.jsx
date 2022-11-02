@@ -22,7 +22,12 @@ import { AuthContext } from "../contexts/AuthContext";
 function Profile(props) {
 
   const { logOut, GetUser, userDetails} = useContext(AuthContext);
+
+  // const imagePath = userDetails.profile.slice(0);
+
+  // const image = imagePath.slice(0,5)
   
+    console.log(userDetails.profile)
 
   return (
     <IonPage>
@@ -33,7 +38,7 @@ function Profile(props) {
         </IonText>
 
         <div className="img-container">
-          <img src={props.img} />
+          <img src={userDetails.profile} />
         </div>
 
         <IonText className= "inapp-text">

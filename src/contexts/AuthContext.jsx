@@ -6,8 +6,8 @@ import {
   signInWithEmailAndPassword,
   signOut
 } from "firebase/auth";
-import { auth } from "../config/firebase-config";
-import { db } from "../config/firebase-config";
+import { auth, workoutRef } from "../config/firebase-config";
+import { db,mealRef } from "../config/firebase-config";
 import {
   collection,
   getDocs,
@@ -42,8 +42,13 @@ const AuthContextProvider = (props) => {
   const [loggedInUser, setLoggedInUser] = useState("");
   const auth = getAuth();
   const [meals,setMeals] = useState([]);
+  const [workouts,setWorkouts] = useState([]);
   const mealCollectionRef = collection(db, "meals");
+  const workoutCollectionRef = collection(db, "workouts");
   const [meal,setMeal] = useState();
+  const [workout,setWorkout] = useState();
+  const [profile,setProfile] = useState();
+
   //Fetching user data from firestore
   useEffect(() => {
    const getUsers = async () => {
@@ -132,7 +137,7 @@ const AuthContextProvider = (props) => {
       if (user) {
         const uid = user.uid;
         const documentRef = doc(db, "userDetails", uid);
-      await updateDoc(documentRef, {nickname: nickname});
+      await updateDoc(documentRef, {nickname: nickname,profile: profile});
       window.location.pathname = "/home";
       } else {
         // User is signed out
@@ -194,7 +199,60 @@ const AuthContextProvider = (props) => {
      }, []);
   }
 
+  // Get Individual meal
+  const GetMeal = (id) =>{
+  
+    const meals = [];
 
+    useEffect(()=>{
+        getDocs(mealRef)
+        .then((snapshot)=>{
+            snapshot.docs.forEach((doc)=>{
+                meals.push({...doc.data(),id: doc.id});
+            });
+            // setMeal(meals);
+            meals.forEach((meal)=>{
+                if(meal.id == id){
+                    setMeal(meal);
+                }
+            })
+        }).catch((error)=>console.log(error))
+    },[id])
+  }
+
+  // Get Workouts from DB
+  const GetWorkouts = () =>{
+    useEffect(() => {
+      const getWorkout = async () => {
+         const workoutData = await getDocs(workoutCollectionRef);
+         setWorkouts(workoutData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+         console.log(workouts);
+       };
+       getWorkout();
+     }, []);
+  }
+
+  // Get Individual Workout
+
+  const GetWorkout = (id) =>{
+  
+    const workouts = [];
+
+    useEffect(()=>{
+        getDocs(workoutRef)
+        .then((snapshot)=>{
+            snapshot.docs.forEach((doc)=>{
+              workouts.push({...doc.data(),id: doc.id});
+            });
+            // setMeal(meals);
+            workouts.forEach((workout)=>{
+                if(workout.id == id){
+                    setWorkout(workout);
+                }
+            })
+        }).catch((error)=>console.log(error))
+    },[id])
+  }
 
 
   return (
@@ -236,6 +294,15 @@ const AuthContextProvider = (props) => {
         GetUser,
         GetMeals,
         meals,
+        setProfile,
+        profile,
+        GetMeal,
+        meal,
+        GetWorkouts,
+        workouts,
+        GetWorkouts,
+        GetWorkout,
+        workout
       }}
     >
       {props.children}

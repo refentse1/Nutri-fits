@@ -31,7 +31,7 @@ const Setupscreen = () => {
   const [newNickname,setNewNickname]=useState([]);
   const[image,setImage]=useState("");
 
-  const {nickname,setNickName,addNickName} = useContext(AuthContext);
+  const {nickname,setNickName,addNickName,setProfile,profile} = useContext(AuthContext);
 
   // useEffect(() => {
   //   console.log("Form Data: ", formData);
@@ -50,7 +50,8 @@ const Setupscreen = () => {
   
     // Can be set to the src of an image now
     // imageElement.src = imageUrl;
-    console.log(image)
+    setProfile(image);
+    console.log(profile)
   };
   return (
     <IonContent className="profile-page">
