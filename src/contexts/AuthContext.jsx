@@ -137,7 +137,7 @@ const AuthContextProvider = (props) => {
       if (user) {
         const uid = user.uid;
         const documentRef = doc(db, "userDetails", uid);
-      await updateDoc(documentRef, {nickname: nickname,profile: profile});
+      await updateDoc(documentRef, {nickname: nickname});
       window.location.pathname = "/home";
       } else {
         // User is signed out
