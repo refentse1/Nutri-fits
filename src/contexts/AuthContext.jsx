@@ -302,7 +302,7 @@ const AuthContextProvider = (props) => {
         status, 
         setStatus,
         loading,
-        setLoading
+        setLoading,
         setProfile,
         profile,
         GetMeal,
