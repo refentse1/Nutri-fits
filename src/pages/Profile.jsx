@@ -48,14 +48,7 @@ function Profile(props) {
           <p>{userDetails.email}</p>
         </IonText>
 
-        <IonItem lines="none" onClick={logOut}>
-          <IonLabel>
-            <p>
-              <IonIcon icon={logOutOutline} />
-              Logout
-            </p>
-          </IonLabel>
-        </IonItem>
+       
 
         <IonItem lines="none">
           <IonLabel>
@@ -79,6 +72,14 @@ function Profile(props) {
             <p>
               <IonIcon icon={helpOutline} />
               Help
+            </p>
+          </IonLabel>
+        </IonItem>
+         <IonItem lines="none" onClick={logOut}>
+          <IonLabel>
+            <p>
+              <IonIcon icon={logOutOutline} />
+              Logout
             </p>
           </IonLabel>
         </IonItem>
