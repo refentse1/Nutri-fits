@@ -1,15 +1,17 @@
 .video{
     width: 100%;
+    height: 30vh;
+    border: 4px solid #f09d5488;
+    border-radius: 4%;
+
 }
 .wrkout--name{
     text-align: center;
+    color: #573926;
 }
 div.btn{
     margin-right: auto;
     margin-left: auto;
     width: 50%;
 }
-
-
-
 
