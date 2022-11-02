@@ -6,6 +6,7 @@ import {
   IonIcon,
   IonItem,
   IonLabel,
+  IonLoading
 } from "@ionic/react";
 import {
   helpOutline,
@@ -21,11 +22,12 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function Profile(props) {
 
-  const { logOut, GetUser, userDetails} = useContext(AuthContext);
+  const { logOut, GetUser, userDetails, loading, setLoading} = useContext(AuthContext);
 
   // const imagePath = userDetails.profile.slice(0);
 
   // const image = imagePath.slice(0,5)
+
   
     console.log(userDetails.profile)
 
@@ -81,6 +83,8 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
       </IonContent>
+       {/* Pule modification */}
+       <IonLoading isOpen={loading} onDidDismiss={() => setLoading(false)} message="Signing Out" duration={5000}/>
       <TabBar/>
     </IonPage>
   );

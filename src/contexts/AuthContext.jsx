@@ -44,6 +44,9 @@ const AuthContextProvider = (props) => {
   const [meals,setMeals] = useState([]);
   const [workouts,setWorkouts] = useState([]);
   const mealCollectionRef = collection(db, "meals");
+
+  const [loading, setLoading] = useState(false); //Pule modification
+  const [status, setStatus] = useState({loading: false, error: false}); //Pule modification
   const workoutCollectionRef = collection(db, "workouts");
   const [meal,setMeal] = useState();
   const [workout,setWorkout] = useState();
@@ -64,6 +67,7 @@ const AuthContextProvider = (props) => {
 
   //Sign in user using email and password
   const login = () => {
+    setStatus({loading: true, error: false}); //Pule modification
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
       // Signed in
@@ -81,6 +85,7 @@ const AuthContextProvider = (props) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      setStatus({loading: false, error: true}); //Pule modification
     });
   }
 
@@ -294,6 +299,10 @@ const AuthContextProvider = (props) => {
         GetUser,
         GetMeals,
         meals,
+        status, 
+        setStatus,
+        loading,
+        setLoading
         setProfile,
         profile,
         GetMeal,
