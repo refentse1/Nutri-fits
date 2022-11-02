@@ -13,26 +13,7 @@ function Meal() {
     const { id } = useParams();
     const {meal, GetMeal} = useContext(AuthContext);
 
-    // const [meal,setMeal] = useState();
 
-    // const meals = [];
-
-    // useEffect(()=>{
-    //     getDocs(mealRef)
-    //     .then((snapshot)=>{
-    //         snapshot.docs.forEach((doc)=>{
-    //             meals.push({...doc.data(),id: doc.id});
-    //         });
-    //         // setMeal(meals);
-    //         meals.forEach((meal)=>{
-    //             if(meal.id == id){
-    //                 setMeal(meal);
-    //             }
-    //         })
-    //     }).catch((error)=>console.log(error))
-    // },)
-
-    // console.log(meal)
     GetMeal(id);
   
     return ( 
