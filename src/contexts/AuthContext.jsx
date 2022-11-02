@@ -16,6 +16,7 @@ import {
   setDoc,
   doc,
   updateDoc,
+  deleteDoc
 } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
 
@@ -92,6 +93,20 @@ const AuthContextProvider = (props) => {
   const logOut = () => {
     auth.signOut()
     window.location.pathname = "/login"
+  }
+
+  //Delete user account
+  const deleteUser = () => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        await deleteDoc(doc(db, "userDetails", uid));
+        window.location.pathname = "/register"
+      } else {
+        // User is signed out
+        console.log("failed");
+      }
+    })
   }
 
   const addCurrentWeight = () => {
@@ -311,7 +326,8 @@ const AuthContextProvider = (props) => {
         workouts,
         GetWorkouts,
         GetWorkout,
-        workout
+        workout,
+        deleteUser
       }}
     >
       {props.children}

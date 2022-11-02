@@ -12,7 +12,8 @@ import {
   helpOutline,
   notificationsOutline,
   createOutline,
-  logOutOutline
+  logOutOutline,
+  trashOutline
 } from "ionicons/icons";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
@@ -22,7 +23,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function Profile(props) {
 
-  const { logOut, GetUser, userDetails, loading, setLoading} = useContext(AuthContext);
+  const { logOut, GetUser, userDetails, loading, setLoading, deleteUser} = useContext(AuthContext);
 
   // const imagePath = userDetails.profile.slice(0);
 
@@ -83,6 +84,16 @@ function Profile(props) {
             </p>
           </IonLabel>
         </IonItem>
+
+         <IonItem lines="none" onClick={deleteUser}>
+          <IonLabel>
+            <p>
+              <IonIcon icon={trashOutline} />
+              Delete Account
+            </p>
+          </IonLabel>
+        </IonItem>
+
       </IonContent>
        {/* Pule modification */}
        <IonLoading isOpen={loading} onDidDismiss={() => setLoading(false)} message="Signing Out" duration={5000}/>
