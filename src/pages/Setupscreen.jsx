@@ -31,7 +31,7 @@ const Setupscreen = () => {
   const [newNickname,setNewNickname]=useState([]);
   const[image,setImage]=useState("");
 
-  const {nickname,setNickName,addNickName} = useContext(AuthContext);
+  const {nickname,setNickName,addNickName,setProfile,profile} = useContext(AuthContext);
 
   const takePhoto = async () => {
     const image = await Camera.getPhoto({

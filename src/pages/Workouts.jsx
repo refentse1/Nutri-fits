@@ -2,21 +2,30 @@ import { IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonPage, IonRow, 
 import Toolbar from "../components/Toolbar";
 import WorkoutCrd from "../components/WorkoutCrd";
 import "./Workouts.css"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import TabBar from "../components/TabBar";
+import { AuthContext } from "../contexts/AuthContext";
 
 
 function Workouts() {
 
+    const {GetWorkouts, workouts} = useContext(AuthContext);
 
-const {data:workouts, isLoading, Error} = useFetch('http://localhost:8000/workouts');
+
+    GetWorkouts();
+
+    console.log(workouts);
+    
+
 
     return ( 
         <IonPage>
             <Toolbar/>
             <IonContent fullscreen>
                 <IonGrid>
+
+
                     <IonRow  >
                         <IonCol size="4"><div id="workouts-category-color1"  className='workouts--category'>Beginner</div></IonCol>
                         <IonCol size="4"><div id="workouts-category-color2"  className='workouts--category'>Intermediate</div></IonCol>
@@ -32,17 +41,13 @@ const {data:workouts, isLoading, Error} = useFetch('http://localhost:8000/workou
                             <IonText ><div className="workouts--text">“Your Body Can Stand Almost Anything… it’s just your mind you have to convince.”</div> </IonText>
                         </IonCol>
                     </IonRow>
-
-                    {/* The logical && assess the left side first and if its true it proceeds to the rest of the code */}
-                    {Error && <div><IonRow><IonCol><IonText ><p style={{textAlign:"Center",fontWeight:"bold"}}>{Error}</p></IonText></IonCol></IonRow></div> }
-                    {isLoading && <div><IonRow><IonCol><IonText ><p style={{textAlign:"Center",fontWeight:"bold"}}>Loading...</p></IonText></IonCol></IonRow></div>}
                     {workouts && workouts.map((workout)=>{
                         return(
                             <IonRow>
                             <IonCol>
                                 <WorkoutCrd
                                     id={workout.id}
-                                    workoutImg = {workout.img}
+                                    workoutImg = {workout.image}
                                     workoutname = {workout.name}
                                     workoutColor = {workout.color}
                                     path = {workout.path}
