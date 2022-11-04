@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonText, IonButton, IonHeader, IonTitle } from "@ionic/react";
+import { IonContent, IonPage, IonText, IonButton, IonHeader, IonTitle, useIonAlert } from "@ionic/react";
 import { useContext, useState } from "react";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
@@ -14,6 +14,7 @@ function Progress(props) {
   const [bmi, setBmi] = useState(0);
 
   const {GetUser,userDetails} = useContext(AuthContext);
+  const [presentAlert] = useIonAlert();
 
   GetUser();
 
@@ -39,6 +40,15 @@ function Progress(props) {
     const h2 = Math.pow(h, 2);
     setBmi(currentWeight / h2);
   };
+
+  if(percentage == '100'){
+    presentAlert({
+      header: 'Alert',
+      subHeader: 'Goal Update',
+      message: 'Congratulations, you have reached your weight goal!',
+      buttons: ['OK'],
+    })
+  }
 
   return (
     <IonPage>
