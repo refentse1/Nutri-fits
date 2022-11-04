@@ -16,6 +16,7 @@ import {
   setDoc,
   doc,
   updateDoc,
+  deleteDoc
 } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
 import { uploadBytes } from "firebase/storage";
@@ -45,6 +46,9 @@ const AuthContextProvider = (props) => {
   const [meals,setMeals] = useState([]);
   const [workouts,setWorkouts] = useState([]);
   const mealCollectionRef = collection(db, "meals");
+
+  const [loading, setLoading] = useState(false); //Pule modification
+  const [status, setStatus] = useState({loading: false, error: false}); //Pule modification
   const workoutCollectionRef = collection(db, "workouts");
   const [meal,setMeal] = useState();
   const [workout,setWorkout] = useState();
@@ -66,6 +70,7 @@ const AuthContextProvider = (props) => {
 
   //Sign in user using email and password
   const login = () => {
+    setStatus({loading: true, error: false}); //Pule modification
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
       // Signed in
@@ -83,12 +88,27 @@ const AuthContextProvider = (props) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      setStatus({loading: false, error: true}); //Pule modification
     });
   }
 
   const logOut = () => {
     auth.signOut()
     window.location.pathname = "/login"
+  }
+
+  //Delete user account
+  const deleteUser = () => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        await deleteDoc(doc(db, "userDetails", uid));
+        window.location.pathname = "/register"
+      } else {
+        // User is signed out
+        console.log("failed");
+      }
+    })
   }
 
   const addCurrentWeight = () => {
@@ -295,6 +315,10 @@ const AuthContextProvider = (props) => {
         GetUser,
         GetMeals,
         meals,
+        status, 
+        setStatus,
+        loading,
+        setLoading,
         setProfile,
         profile,
         GetMeal,

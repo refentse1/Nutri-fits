@@ -10,6 +10,8 @@ import {
   IonPage,
   IonRow,
   IonTitle,
+  IonText,
+  IonLoading
 } from "@ionic/react";
 import Toolbar from "../components/Toolbar";
 import "./Styles.css";
@@ -18,7 +20,7 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 function Login() {
-  const { login, loginEmail, setLoginEmail, loginPassword, setLoginPassword } = useContext(AuthContext);
+  const { login, loginEmail, setLoginEmail, loginPassword, setLoginPassword, status } = useContext(AuthContext);
     
 
     const emailInput = (e) => {
@@ -55,12 +57,24 @@ function Login() {
               onIonChange={passwordInput}
             ></IonInput>
           </IonItem>
+
+                  {/* Pule modification */}
+
+                  {status.error && 
+            <p style={{marginLeft:"15px"}}>
+              <IonText color="danger" >Invalid Email or Password</IonText>
+            </p>
+          }
+          
+          {/* Pule modification */}
+          
         </IonGrid>
         <p style={{ textAlign: "center" }}>
           <IonButton shape="round" className="Lbtn" onClick={login}>
             Login
           </IonButton>
         </p>
+        <IonLoading isOpen={status.loading} message="Signing In" />
       </IonContent>
     </IonPage>
   );

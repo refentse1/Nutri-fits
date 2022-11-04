@@ -21,12 +21,14 @@ function Meal() {
             <Toolbar/>
             <IonContent fullscreen>
                 {meal && (
+                    
                     <IonGrid>
+                        <IonTitle style={{color:"red" , paddingTop: "20px"}}>Let's Make It!</IonTitle>
                         <IonRow className="ion-padding">
                             <IonCol><img src={meal.image} style={{borderRadius:"5px",boxShadow:"0px 10px 10px 1px #515151 "}} alt="" /></IonCol>
                         </IonRow>
                         <IonRow>
-                            <IonCol ><IonText><h3 style={{textAlign:"center",marginTop:"30px"}}>{meal.name}</h3></IonText></IonCol>
+                            <IonCol ><IonText><h3 style={{textAlign:"center",marginTop:"30px", color:"#573926"}}>{meal.name}</h3></IonText></IonCol>
                         </IonRow>
                         <IonRow className="ion-padding">
                             <IonCard style={{boxShadow:"0px 10px 10px 1px #515151 "}} color='primary' >

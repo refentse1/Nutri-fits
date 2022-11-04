@@ -12,7 +12,8 @@ import {
   helpOutline,
   notificationsOutline,
   createOutline,
-  logOutOutline
+  logOutOutline,
+  trashOutline
 } from "ionicons/icons";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
@@ -83,7 +84,27 @@ function Profile(props) {
             </p>
           </IonLabel>
         </IonItem>
+         <IonItem lines="none" onClick={logOut}>
+          <IonLabel>
+            <p>
+              <IonIcon icon={logOutOutline} />
+              Logout
+            </p>
+          </IonLabel>
+        </IonItem>
+
+         <IonItem lines="none" onClick={deleteUser}>
+          <IonLabel>
+            <p>
+              <IonIcon icon={trashOutline} />
+              Delete Account
+            </p>
+          </IonLabel>
+        </IonItem>
+
       </IonContent>
+       {/* Pule modification */}
+       <IonLoading isOpen={loading} onDidDismiss={() => setLoading(false)} message="Signing Out" duration={5000}/>
       <TabBar/>
     </IonPage>
   );
