@@ -7,6 +7,7 @@ import {
   IonItem,
   IonLabel,
   useIonAlert,
+  IonLoading,
 } from "@ionic/react";
 import {
   helpOutline,
@@ -23,7 +24,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function Profile(props) {
 
-  const { logOut, GetUser, userDetails} = useContext(AuthContext);
+  const { logOut, GetUser, userDetails, loading, setLoading,deleteUser} = useContext(AuthContext);
   const [presentAlert] = useIonAlert();
   
 

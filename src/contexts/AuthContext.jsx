@@ -46,6 +46,7 @@ const AuthContextProvider = (props) => {
   const [meals,setMeals] = useState([]);
   const [workouts,setWorkouts] = useState([]);
   const mealCollectionRef = collection(db, "meals");
+  
 
   const [loading, setLoading] = useState(false); //Pule modification
   const [status, setStatus] = useState({loading: false, error: false}); //Pule modification
@@ -328,7 +329,8 @@ const AuthContextProvider = (props) => {
         GetWorkouts,
         GetWorkout,
         workout,
-        user
+        user,
+        deleteUser
       }}
     >
       {props.children}
