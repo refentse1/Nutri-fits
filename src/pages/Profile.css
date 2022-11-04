@@ -41,3 +41,6 @@ ion-icon{
 .app-heading{
     text-align: center;
 }
+.cursor{
+    cursor: pointer;
+}

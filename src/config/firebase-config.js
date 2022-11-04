@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import {getAuth, onAuthStateChanged } from "firebase/auth";
 import {getFirestore} from "@firebase/firestore"
 import { collection } from "@firebase/firestore";
+import {getStorage, ref} from 'firebase/storage'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,12 +17,15 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export const storage = getStorage(app);
 
 export const auth = getAuth(app);
 
 export const db = getFirestore(app);
 
 export const nicknameRef= collection(db,"nickNames");
-
 export const mealRef = collection(db,'meals');
 export const workoutRef = collection(db,'workouts');
+// export const storageRef = ref(storage,'profileImage');
+
+

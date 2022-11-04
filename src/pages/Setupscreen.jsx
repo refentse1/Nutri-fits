@@ -16,7 +16,7 @@ import { useHistory } from "react-router";
 import "./Setupscreen.css"
 import { Camera, CameraResultType } from '@capacitor/camera';
 import {FaCamera} from "react-icons/fa"
-import {db,nicknameRef} from "../config/firebase-config"
+import {db,nicknameRef, storage, storageRef} from "../config/firebase-config"
 import{
   getDocs,
   addDoc,
@@ -25,6 +25,7 @@ import{
   onSnapshot,
 } from "firebase/firestore"
 import { AuthContext } from "../contexts/AuthContext";
+import { ref, uploadBytes } from "firebase/storage";
 const Setupscreen = () => {
   const history = useHistory();
   const [Addnickname,setAddNickname]=useState([]);
@@ -48,8 +49,13 @@ const Setupscreen = () => {
   
     // Can be set to the src of an image now
     setImage(imageUrl);
-    console.log(image.path)
+    setProfile(image.webPath);
+    console.log("Image:",imageUrl);
+    const storageRef = ref(storage,`ProfileImages/${profile}`);
+    uploadBytes(storageRef,Blob).then((snapshot)=>console.log('Uploaded file'));
   };
+
+  // uploadBytes(storageRef,profile).then((snapshot)=>console.log('Uploaded file'));
 
   return (
     <IonContent className="profile-page">

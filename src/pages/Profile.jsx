@@ -6,6 +6,7 @@ import {
   IonIcon,
   IonItem,
   IonLabel,
+  useIonAlert,
 } from "@ionic/react";
 import {
   helpOutline,
@@ -22,12 +23,9 @@ import { AuthContext } from "../contexts/AuthContext";
 function Profile(props) {
 
   const { logOut, GetUser, userDetails} = useContext(AuthContext);
-
-  // const imagePath = userDetails.profile.slice(0);
-
-  // const image = imagePath.slice(0,5)
+  const [presentAlert] = useIonAlert();
   
-    console.log(userDetails.profile)
+
 
   return (
     <IonPage>
@@ -46,7 +44,7 @@ function Profile(props) {
           <p>{userDetails.email}</p>
         </IonText>
 
-        <IonItem lines="none" onClick={logOut}>
+        <IonItem className="cursor" lines="none" onClick={logOut}>
           <IonLabel>
             <p>
               <IonIcon icon={logOutOutline} />
@@ -55,7 +53,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-        <IonItem lines="none">
+        <IonItem className="cursor" lines="none">
           <IonLabel>
             <p>
               <IonIcon icon={createOutline} />
@@ -64,7 +62,12 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-        <IonItem lines="none">
+        <IonItem className="cursor" lines="none" onClick={()=>presentAlert({
+                      header: 'Notifications',
+                      subHeader: 'Notifications Status',
+                      message: "You currently don't have any notifications!",
+                      buttons: ['OK'],
+        })}>
           <IonLabel>
             <p>
               <IonIcon icon={notificationsOutline} /> Notifications{" "}
@@ -72,7 +75,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-        <IonItem lines="none">
+        <IonItem className="cursor" lines="none">
           <IonLabel>
             <p>
               <IonIcon icon={helpOutline} />

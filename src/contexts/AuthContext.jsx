@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut
 } from "firebase/auth";
-import { auth, workoutRef } from "../config/firebase-config";
+import { auth, storageRef, workoutRef } from "../config/firebase-config";
 import { db,mealRef } from "../config/firebase-config";
 import {
   collection,
@@ -18,6 +18,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
+import { uploadBytes } from "firebase/storage";
 
 export const AuthContext = createContext();
 
@@ -48,6 +49,7 @@ const AuthContextProvider = (props) => {
   const [meal,setMeal] = useState();
   const [workout,setWorkout] = useState();
   const [profile,setProfile] = useState();
+  const [user,setUser] = useState();
 
   //Fetching user data from firestore
   useEffect(() => {
@@ -137,7 +139,8 @@ const AuthContextProvider = (props) => {
       if (user) {
         const uid = user.uid;
         const documentRef = doc(db, "userDetails", uid);
-      await updateDoc(documentRef, {nickname: nickname});
+      await updateDoc(documentRef, {nickname: nickname,profile: profile});
+      // uploadBytes(storageRef,profile).then((snapshot)=>console.log('Uploaded file'));
       window.location.pathname = "/home";
       } else {
         // User is signed out
@@ -157,9 +160,7 @@ const AuthContextProvider = (props) => {
         const docSnap = await getDoc(docRef);
   
         if (docSnap.exists()) {
-          return setUserDetails(docSnap.data()) 
-          
-  
+          return setUserDetails(docSnap.data())   
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
@@ -302,7 +303,8 @@ const AuthContextProvider = (props) => {
         workouts,
         GetWorkouts,
         GetWorkout,
-        workout
+        workout,
+        user
       }}
     >
       {props.children}
