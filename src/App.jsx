@@ -40,6 +40,7 @@ import SignIn from './pages/SignIn';
 import OnBoarding from './pages/OnBoarding';
 import UserContext from './pages/context';
 import Setupscreen from './pages/Setupscreen';
+import UpdateInfo from './pages/UpdateInfo';
 
 
 setupIonicReact();
@@ -93,6 +94,9 @@ const App = () => {
                     email={userData.email}
                     img={userData.img}
                   />
+                </Route>
+                <Route exact path="/updateInfo">
+                  <UpdateInfo/>
                 </Route>
                 <Route exact path="/progress">
                   <Progress/>

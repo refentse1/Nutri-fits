@@ -51,10 +51,10 @@ function Profile(props) {
 
        
 
-        <IonItem lines="none">
+        <IonItem lines="none" routerLink="/updateInfo">
           <IonLabel>
             <p>
-              <IonIcon icon={createOutline} />
+              <IonIcon icon={createOutline}/>
               Edit
             </p>
           </IonLabel>

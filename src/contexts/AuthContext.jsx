@@ -100,7 +100,10 @@ const AuthContextProvider = (props) => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const uid = user.uid;
+        
+        deleteUser(user)
         await deleteDoc(doc(db, "userDetails", uid));
+
         window.location.pathname = "/register"
       } else {
         // User is signed out
