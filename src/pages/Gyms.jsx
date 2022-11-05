@@ -49,7 +49,7 @@ const NearbyGyms = ()=>{
             <Toolbar/>
             <IonContent >
             
-            <IonTitle style={{color:"#FE8235",marginTop:"25px", fontSize:"20px", fontWeight:"600"}}>Gyms near you!</IonTitle>
+            <IonTitle className="Gtitle">Gyms near you!</IonTitle>
             <IonCol>
             <IonText><div className="meals--text">“Success usually comes to those who are too busy to be looking for it.” -Henry David Thoreau</div></IonText>
             </IonCol>

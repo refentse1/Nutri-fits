@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonText, IonButton, IonHeader, IonTitle } from "@ionic/react";
+import { IonContent, IonPage, IonText, IonButton, IonHeader, IonTitle, useIonAlert } from "@ionic/react";
 import { useContext, useState } from "react";
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
@@ -12,6 +12,7 @@ function Progress(props) {
   const [currentWeight, setCurrentWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState(0);
+  const [presentAlert] = useIonAlert();
 
   const {GetUser,userDetails} = useContext(AuthContext);
 
@@ -40,16 +41,24 @@ function Progress(props) {
     setBmi(currentWeight / h2);
   };
 
+  if(percentage == '100'){
+    presentAlert({
+      header: 'Alert',
+      subHeader: 'Goal Update',
+      message: 'Congratulations, you have reached your weight goal!',
+      buttons: ['OK'],
+    })
+  }
+
   return (
     <IonPage>
       <Toolbar />
       <IonContent fullscreen className="progress-page ion-padding">
-        <IonTitle style={{color:"#FE8235",marginTop:"20px", fontSize:"20px", fontWeight:"600"}}> Progress </IonTitle>
+      <IonTitle className="Ptitle"> Track Progress </IonTitle>
         <div className="stats-container">
         <IonText>
           <p className="motivate">
-            "slowly is the fastest way to
-            <br /> get where you want to be"
+            "slowly is the fastest way to get where you want to be"
           </p>
         </IonText>
 

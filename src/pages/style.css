@@ -2,9 +2,14 @@ body {
     --background-color: #D9D9D9;
 }
 .profile {
-    font-weight: bold;
+    /* font-weight: bold;
     font-size: 15px;
+    color: #573926; */
+    font-weight:700;
+    margin-left: 30%;
+    font-family: 'Domine';
     color: #573926;
+    font-size:xx-large;
 }
 .motivate {
     font-family: 'Domine';
@@ -12,21 +17,17 @@ body {
     font-weight: bold;
     font-size: 15px;
     line-height: 22px;
-
     text-align: center;
     letter-spacing: -0.408px;
-
     color: #573926;
 }
-
-.ion-weight {
+ion-text.ion-weight {
     position: absolute;
     width: 276px;
     height: 84px;
     left: 59px;
     top: 120px;
-
-    font-family: 'Work Sans';
+    font-family: 'Domine';
     font-style: italic;
     font-weight: 800;
     font-size: 48px;
@@ -43,6 +44,9 @@ body {
 
 .ion-item--weight {
     top: 210px;
+    color: #573926;
+    font-family: 'Domine';
+    font-weight: 700;
 }
 
 /* .button {
@@ -55,9 +59,22 @@ body {
     left: 37px;
 } */
 
-.next-button {
+ion-button.next-button {
     font-weight: 400;
     text-align: center;
     position: relative;
     top: 220px;
+    --background: #FE8235;
+    --background-hover: #FE8235;
+    --background-activated: #FE8235;
+    --background-focused: #FE8235;
+    --font-family: 'Domine';
+    border-color: #FE8235; 
+    color:#573926;
+    margin-right: -20px;
+    width: 50%;
+    height: 6%;
+    left: 65px;
+    font-size: 20px;
+    font-family:'Domine';
 }

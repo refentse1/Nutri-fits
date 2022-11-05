@@ -14,8 +14,8 @@ import {
   IonLoading
 } from "@ionic/react";
 import Toolbar from "../components/Toolbar";
-import "./Styles.css";
-import LogoX from "../images/LogoX.png";
+import "./Login.css";
+import RealLogo from "../images/RealLogo.png";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -34,32 +34,27 @@ function Login() {
   return (
     <IonPage>
       <IonContent class="mypages">
-        <IonGrid>
-          <img src={LogoX} class="LogoC"></img>
-          <IonHeader>
-            <IonTitle class="Title">Nutri-Fit</IonTitle>
-          </IonHeader>
+          <img src={RealLogo} className="Logoo"></img>
           <IonItem>
-            <IonLabel>Email</IonLabel>
-            <IonInput class="nameI"
+            <IonLabel  position="floating" color="medium">Email</IonLabel>
+            <IonInput 
+              className="email"
               type="email"
-              placeholder="Enter your registered email"
+              placeholder="Enter your email"
               value={loginEmail}
               onIonChange={emailInput}></IonInput>
           </IonItem>
           <IonItem>
-            <IonLabel>Password</IonLabel>
+            <IonLabel  position="floating" color="medium">Password</IonLabel>
             <IonInput
-              class="nameI"
+              className="password"
               type="password"
               placeholder="Enter your password"
               value={loginPassword}
               onIonChange={passwordInput}
             ></IonInput>
           </IonItem>
-
                   {/* Pule modification */}
-
                   {status.error && 
             <p style={{marginLeft:"15px"}}>
               <IonText color="danger" >Invalid Email or Password</IonText>
@@ -68,7 +63,6 @@ function Login() {
           
           {/* Pule modification */}
           
-        </IonGrid>
         <p style={{ textAlign: "center" }}>
           <IonButton shape="round" className="Lbtn" onClick={login}>
             Login

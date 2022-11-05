@@ -6,7 +6,8 @@ import {
   IonIcon,
   IonItem,
   IonLabel,
-  IonLoading
+  useIonAlert,
+  IonLoading,
 } from "@ionic/react";
 import {
   helpOutline,
@@ -23,21 +24,17 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function Profile(props) {
 
-  const { logOut, GetUser, userDetails, loading, setLoading, deleteUser} = useContext(AuthContext);
-
-  // const imagePath = userDetails.profile.slice(0);
-
-  // const image = imagePath.slice(0,5)
-
+  const { logOut, GetUser, userDetails, loading, setLoading,deleteUser} = useContext(AuthContext);
+  const [presentAlert] = useIonAlert();
   
-    console.log(userDetails.profile)
+
 
   return (
     <IonPage>
       <Toolbar />
       <IonContent fullscreen className= "profile-page ion-padding">
-        <IonText className="heading">
-          <h2>Profile</h2>
+        <IonText >
+          <h1 className="heading">Profile</h1>
         </IonText>
 
         <div className="img-container">
@@ -49,18 +46,22 @@ function Profile(props) {
           <p>{userDetails.email}</p>
         </IonText>
 
-       
 
-        <IonItem lines="none" routerLink="/updateInfo">
+        <IonItem className="cursor" lines="none">
           <IonLabel>
             <p>
-              <IonIcon icon={createOutline}/>
+              <IonIcon icon={createOutline} />
               Edit
             </p>
           </IonLabel>
         </IonItem>
 
-        <IonItem lines="none">
+        <IonItem className="cursor" lines="none" onClick={()=>presentAlert({
+                      header: 'Notifications',
+                      subHeader: 'Notifications Status',
+                      message: "You currently don't have any notifications!",
+                      buttons: ['OK'],
+        })}>
           <IonLabel>
             <p>
               <IonIcon icon={notificationsOutline} /> Notifications{" "}
@@ -68,7 +69,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-        <IonItem lines="none">
+        <IonItem className="cursor" lines="none">
           <IonLabel>
             <p>
               <IonIcon icon={helpOutline} />
@@ -76,7 +77,7 @@ function Profile(props) {
             </p>
           </IonLabel>
         </IonItem>
-         <IonItem lines="none" onClick={logOut}>
+         <IonItem className="cursor" lines="none" onClick={logOut}>
           <IonLabel>
             <p>
               <IonIcon icon={logOutOutline} />
@@ -85,7 +86,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-         <IonItem lines="none" onClick={deleteUser}>
+         <IonItem className="cursor" lines="none" onClick={deleteUser}>
           <IonLabel>
             <p>
               <IonIcon icon={trashOutline} />

@@ -38,8 +38,7 @@ const Weight = (props) => {
         <IonText className="profile">My Profile</IonText>
         <IonText>
           <p className="motivate">
-            "slowly is the fastest way to
-            <br /> get where you want to be"
+            "slowly is the fastest way to get where you want to be"
           </p>
         </IonText>
         <IonText className="ion-weight">
@@ -56,16 +55,14 @@ const Weight = (props) => {
             onIonChange={onChangeWeight}
           />
         </IonItem>
-
-        <p className="next-button">
-          <IonButton
+          <IonButton className="next-button"
             routerLink="/Height"
             shape="round"
             onClick={addCurrentWeight}
           >
             Next
           </IonButton>
-        </p>
+        
       </IonContent>
     </IonPage>
   );

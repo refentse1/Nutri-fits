@@ -18,7 +18,7 @@ import "../components/Toolbar.css";
 import Toolbar from "../components/Toolbar";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-// import './style.css';
+import './style.css';
 
 const TargetWeight = (props) => {
     const { targetWeightInput, setTargetWeightInput, addGoal } = useContext(AuthContext);
@@ -34,8 +34,7 @@ const TargetWeight = (props) => {
         <IonText className="profile">My Profile</IonText>
         <IonText>
           <p className="motivate">
-            "Go the extra mile, <br />
-            no one will save you"
+            "Go the extra mile, no one will save you"
           </p>
         </IonText>
         <IonText className="ion-weight">
@@ -53,11 +52,9 @@ const TargetWeight = (props) => {
             onIonChange={onChangeTargetWeight}
           />
         </IonItem>
-        <p className="next-button">
-          <IonButton  shape="round" onClick={addGoal}>
-            <IonText style={{ color: "#573926" }}>Next</IonText>
+          <IonButton  shape="round" onClick={addGoal} className="next-button">
+            Next
           </IonButton>
-        </p>
       </IonContent>
     </IonPage>
   );

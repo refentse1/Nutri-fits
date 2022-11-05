@@ -34,12 +34,11 @@ GetUser();
       <Toolbar />
       <IonContent className="background" fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
+          {/* <IonToolbar>
             <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
+          </IonToolbar> */}
         </IonHeader>
-        <h1>Hi! {userDetails.name}</h1>
-
+        <IonTitle  className="nick">Hi! {userDetails.nickname}</IonTitle>
         {CardData.map((data) => {
           return (
             <Card
