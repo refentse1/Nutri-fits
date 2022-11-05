@@ -49,7 +49,7 @@ const Setupscreen = () => {
     setProfile(imageUrl);
     console.log("Image:",imageUrl);
     // const storageRef = ref(storage,`ProfileImages/${profile}`);
-    uploadBytes(storageRef,Blob).then((snapshot)=>console.log('Uploaded file'));
+    // uploadBytes(storageRef,Blob).then((snapshot)=>console.log('Uploaded file'));
   };
 
   // uploadBytes(storageRef,profile).then((snapshot)=>console.log('Uploaded file'));
