@@ -46,14 +46,6 @@ function Profile(props) {
           <p>{userDetails.email}</p>
         </IonText>
 
-        <IonItem className="cursor" lines="none" onClick={logOut}>
-          <IonLabel>
-            <p>
-              <IonIcon icon={logOutOutline} />
-              Logout
-            </p>
-          </IonLabel>
-        </IonItem>
 
         <IonItem className="cursor" lines="none">
           <IonLabel>
@@ -85,7 +77,7 @@ function Profile(props) {
             </p>
           </IonLabel>
         </IonItem>
-         <IonItem lines="none" onClick={logOut}>
+         <IonItem className="cursor" lines="none" onClick={logOut}>
           <IonLabel>
             <p>
               <IonIcon icon={logOutOutline} />
@@ -94,7 +86,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-         <IonItem lines="none" onClick={deleteUser}>
+         <IonItem className="cursor" lines="none" onClick={deleteUser}>
           <IonLabel>
             <p>
               <IonIcon icon={trashOutline} />
