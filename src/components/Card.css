@@ -4,6 +4,9 @@ ion-card.card{
     margin-bottom: 18px;
     text-align: center;
     box-shadow: 0px 4px 4px 0px #00000040;
+    font-size:xx-large;
+    font-family:'Domine';
+    font-weight: 700;
 }
 
 #card1{

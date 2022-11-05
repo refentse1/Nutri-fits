@@ -54,49 +54,50 @@ function Progress(props) {
     <IonPage>
       <Toolbar />
       <IonContent fullscreen className="progress-page ion-padding">
-        <IonTitle style={{color:"#FE8235",marginTop:"20px", fontSize:"20px", fontWeight:"600"}}> Progress </IonTitle>
+        <IonTitle className="Ptitle"> Track Progress </IonTitle>
         <div className="stats-container">
         <IonText>
           <p className="motivate">
-            "slowly is the fastest way to
-            <br /> get where you want to be"
+            "slowly is the fastest way to get where you want to be"
           </p>
         </IonText>
 
-          <IonText className="inapp-text">
-            <h4 style={{color: "#FE8235"}}>Current weight</h4>
-            <input
-              className="progress-input"
+          <IonText >
+            <h4 className="inapp-text">Current weight</h4>
+            <ion-input
+              className="value"
               type="number"
               onChange={handleCurrentWeight}
               value={currentWeight}
+              color="medium"
             />
           </IonText>
 
-          <IonText className="inapp-text">
-            <h4 style={{color: "#FE8235"}}>Height</h4>
+          <IonText >
+            <h4 className="inapp-text">Height</h4>
             <input
-              className="progress-input"
+            className="value"
+              
               type="number"
               onChange={handleHeight}
               value={userDetails.height}
             />
           </IonText>
 
-          <IonText className="inapp-text">
-            <h4 style={{color: "#FE8235"}}>Starting weight: </h4>
-            <p>{userDetails.weight}</p>
+          <IonText>
+            <h4 className="inapp-text">Starting weight: </h4>
+            <p className="value">{userDetails.weight}</p>
           </IonText>
 
-          <IonText className="inapp-text">
-            <h4 style={{color: "#FE8235"}}>BMI</h4>
-            <p>{bmi}</p>
+          <IonText >
+            <h4 className="inapp-text">BMI</h4>
+            <p className="value">{bmi}</p>
           </IonText>
 
-          <div className="goal">Goal: {userDetails.goalWeight}</div>
+          <div className="goal" color="medium">Goal: {userDetails.goalWeight}</div>
           <div className="progress-container">
             <div className="progress-bar">
-              <div className="bar" style={{ width: `${percentage}%` }}></div>
+              <div className="bar" style={{ width: `${percentage}%` ,color:"#573926"}}></div>
             </div>
           </div>
           <br></br>

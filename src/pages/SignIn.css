@@ -9,4 +9,14 @@ ion-content.slide5{
 ion-button.btnsign-in{
     width: 163px;
     --border-radius: 40px;
+    font-family:'Domine';
+    color: #573926;
+    font-weight:bolder
+}
+ion-button.btnlogin-in{
+    font-family:'Domine';
+    width: 163px;
+    --border-radius: 40px;
+    color: #573926;
+    font-weight:bolder
 }

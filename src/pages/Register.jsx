@@ -34,9 +34,9 @@ import {
   import Toolbar from "../components/Toolbar";
   import { AuthContext } from "../contexts/AuthContext";
   import { useContext } from "react";
-  
-  import LogoX from "../images/LogoX.png";
-  import "./Styles.css";
+  import RealLogo from "../images/RealLogo.png";
+  // import "./Styles.css";
+  import "./Register.css"
   
   function Register() {
     const {setRegisterEmail,setRegisterPassword,registerEmail,registerPassword,registerName,setRegisterName,registerSurname,setRegisterSurname, status, setStatus} = useContext(AuthContext);
@@ -94,33 +94,31 @@ import {
   
     return (
       <IonPage>
-        <IonContent class="mypages">
+        <IonContent className="Pages">
           <IonGrid>
-            <img src={LogoX} class="LogoC"></img>
-            <IonHeader>
-              <IonTitle class="Title">Nutri-Fit</IonTitle>
-            </IonHeader>
+            <img src={RealLogo} className="Logoo"></img>
             <IonItem>
-              <IonLabel>Name</IonLabel>
+              <IonLabel position="floating" color="medium">Name</IonLabel>
               <IonInput
-                class="nameI"
+                color="medium"
                 type="text"
                 value={registerName}
                 onIonInput={nameInput}
               ></IonInput>
             </IonItem>
             <IonItem>
-              <IonLabel>Surname</IonLabel>
+              <IonLabel color="medium" position="floating">Surname</IonLabel>
               <IonInput
-                class="nameI"
+                color="medium"
                 type="text"
                 value={registerSurname}
                 onIonInput={surnameInput}
               ></IonInput>
             </IonItem>
             <IonItem>
-              <IonLabel>Email</IonLabel>
+              <IonLabel position="floating" color="medium">Email</IonLabel>
               <IonInput
+                color="medium"
                 class="nameI"
                 type="email"
                 value={registerEmail}
@@ -128,8 +126,9 @@ import {
               ></IonInput>
             </IonItem>
             <IonItem>
-              <IonLabel>Password</IonLabel>
+              <IonLabel position="floating"color="medium">Password</IonLabel>
               <IonInput
+                color="medium"
                 class="nameI"
                 type="password"
                 value={registerPassword}
@@ -153,7 +152,7 @@ import {
               shape="round"
               // routerLink="/Login"
               class="btn"
-              className="Lbtn"
+              className="Rbtn"
               onClick={() => register()}
             >
               Register

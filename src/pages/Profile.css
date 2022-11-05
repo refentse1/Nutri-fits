@@ -3,11 +3,10 @@ ion-content.profile-page{
     padding: 20px;
     text-align: center;
 }
-
-ion-text.heading{
-    font-family: 'Epilogue';
+.heading{
+    font-family: 'Domine';
     font-weight: 900;
-    font-size: 22px;
+    font-size: 35px;
     line-height: 23px;
     color: #573926;
 }
@@ -26,7 +25,7 @@ ion-text.inapp-text{
     margin: auto;
 }
 
-.img-container img{
+.img-container {
     width: 150px;
     height: 150px;
     object-fit: fill;

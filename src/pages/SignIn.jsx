@@ -9,7 +9,7 @@ function SignIn(){
                 <div className="slide">
                     <img src={Logo} alt="" />
                     <IonButton routerLink='/register' className="btnsign-in">Register</IonButton><br />
-                    <IonButton routerLink='/login' className="btnsign-in">Login</IonButton>
+                    <IonButton routerLink='/login' className="btnlogin-in">Login</IonButton>
                 </div>
             </IonContent>
         </IonPage>

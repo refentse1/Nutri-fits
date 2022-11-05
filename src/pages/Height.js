@@ -18,7 +18,7 @@ import "../components/Toolbar";
 import Toolbar from "../components/Toolbar";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-// import './style.css';
+import './style.css';
 
 const Height = (props) => {
   const { heightInput, setHeightInput, addHeight } = useContext(AuthContext);
@@ -32,8 +32,7 @@ const Height = (props) => {
         <IonText className="profile">My Profile</IonText>
         <IonText>
           <p className="motivate">
-            "Baby steps always go
-            <br /> the furthest!..."
+            "Baby steps always go the furthest!..."
           </p>
         </IonText>
         <IonText className="ion-weight">
@@ -50,11 +49,9 @@ const Height = (props) => {
             onIonChange={onChangeHeight}
           />
         </IonItem>
-        <p className="next-button">
-          <IonButton routerLink="/TargetWeight" shape="round" onClick={addHeight}>
-            <IonText style={{ color: "#573926" }}>Next</IonText>
+          <IonButton routerLink="/TargetWeight" shape="round" onClick={addHeight}  className="next-button">
+            Next
           </IonButton>
-        </p>
       </IonContent>
     </IonPage>
   );

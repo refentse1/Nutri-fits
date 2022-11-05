@@ -33,12 +33,13 @@ function Profile(props) {
     <IonPage>
       <Toolbar />
       <IonContent fullscreen className= "profile-page ion-padding">
-        <IonText className="heading">
-          <h2>Profile</h2>
+        <IonText >
+          <h1 className="heading">Profile</h1>
         </IonText>
 
         <div className="img-container">
           <img src={userDetails.profile} />
+          
         </div>
 
         <IonText className= "inapp-text">
@@ -77,7 +78,7 @@ function Profile(props) {
             </p>
           </IonLabel>
         </IonItem>
-         <IonItem className="cursor" lines="none" onClick={logOut}>
+        <IonItem className="cursor" lines="none" onClick={logOut}>
           <IonLabel>
             <p>
               <IonIcon icon={logOutOutline} />
@@ -86,7 +87,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-         <IonItem className="cursor" lines="none" onClick={deleteUser}>
+         <IonItem lines="none" className="cursor" onClick={deleteUser}>
           <IonLabel>
             <p>
               <IonIcon icon={trashOutline} />

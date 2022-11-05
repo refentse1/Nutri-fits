@@ -2,11 +2,17 @@ ion-col > div.meals--category{
     padding: 2.1px;
     border-radius: 5px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
+    color: #573926;
+    font-family:'Domine';
+    font-weight: 700;
 }
 .meals--title{
     color: red;
     padding-left: 5px;
+    font-size:xx-large;
+    font-family:'Domine';
+    font-weight: 700;
 }
 .meals--text{
     padding-left: 5px;
@@ -15,20 +21,21 @@ ion-col > div.meals--category{
     font-weight: bold;
     font-size: 15px;
     line-height: 22px;
-
     text-align: center;
     letter-spacing: -0.408px;
-
     color: #573926;
 }
 #meals-calorie-color1{
     background-color:#FEE7E7 ;
+    font-family:'Domine'
 }
 #meals-calorie-color2{
     background-color:#f09d5488 ;
+    font-family:'Domine'
 }
 #meals-calorie-color3{
     background-color:#F09E54 ;
+    font-family:'Domine'
 }
 .loading{
     color: #F09E54;

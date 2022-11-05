@@ -27,9 +27,6 @@ import{
 import { AuthContext } from "../contexts/AuthContext";
 import { ref, uploadBytes } from "firebase/storage";
 const Setupscreen = () => {
-  const history = useHistory();
-  const [Addnickname,setAddNickname]=useState([]);
-  const [newNickname,setNewNickname]=useState([]);
   const[image,setImage]=useState("");
 
   const {nickname,setNickName,addNickName,setProfile,profile} = useContext(AuthContext);
@@ -49,46 +46,39 @@ const Setupscreen = () => {
   
     // Can be set to the src of an image now
     setImage(imageUrl);
-    setProfile(image.webPath);
+    setProfile(imageUrl);
     console.log("Image:",imageUrl);
-    const storageRef = ref(storage,`ProfileImages/${profile}`);
+    // const storageRef = ref(storage,`ProfileImages/${profile}`);
     uploadBytes(storageRef,Blob).then((snapshot)=>console.log('Uploaded file'));
   };
 
   // uploadBytes(storageRef,profile).then((snapshot)=>console.log('Uploaded file'));
 
-  return (
-    <IonContent className="profile-page">
-  <div>
-      <img  className="img-container" src={image}></img>
-  </div>
-  < FaCamera className="iconn" onClick={takePhoto} 
-    color="#573926"
-    size="2em" 
-    title="Take picture or choos from your photos "/>
-      <IonItem>
-        <IonLabel position="floating" color="medium">Name:</IonLabel>
-        <IonInput
-        className="Name"
-          type="text"
-          color="medium"
-        />
-      </IonItem>
-      <IonItem>
-        <IonLabel position="floating" color="medium">Nickname:</IonLabel>
-        <IonInput
-      color="medium"
-         className="Nickname"
-          type="text"
-          onIonChange={(e)=>setNickName(e.target.value)}
-          value={nickname}
-        />
-      </IonItem>
-      <IonButton className="next-bt"shape="round" size="small" onClick={addNickName}>
-        Next
-      </IonButton>
-    </IonContent>
-  );
+   return (
+      <IonContent className="profile-page">
+    <div>
+        <img  className="img-container" src={image}></img>
+    </div>
+    <FaCamera className="iconn" onClick={()=>takePhoto()} 
+      color="#573926"
+      size="2em" 
+      title="Take picture or choos from your photos "/>
+      {/* {errorMessage && <h1 className="Alert">Please fill out all the fields</h1>} */}
+        <IonItem>
+          <IonLabel position="floating" color="medium">Nickname:</IonLabel>
+          <IonInput
+        color="medium"
+           className="Nickname"
+            type="text"
+            onIonChange={(e)=>setNickName(e.target.value)}
+            value={nickname}
+          />
+        </IonItem>
+        <IonButton className="next-bt"shape="round" size="small" onClick={addNickName}>
+          Next
+        </IonButton>
+      </IonContent>
+    );
 };
 
 export default Setupscreen;
