@@ -6,7 +6,7 @@ function MealCard({meal,ingredients,mealImg,id}) {
 
     return ( 
         <IonCard className="container" key={id} routerLink={`/meal/${id}`}>
-            <img className="card--bg" src={mealImg} alt="cardBG.jpg" />
+            <img className="card--bg" style={{height:'200px',width:'100%'}} src={mealImg} alt="cardBG.jpg" />
             <h2 className="centered">{meal}</h2>
         </IonCard>
      );
