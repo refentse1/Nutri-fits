@@ -34,7 +34,7 @@ function Login() {
   return (
     <IonPage>
       <IonContent class="mypages">
-          <img src={RealLogo} className="Logoo"></img>
+          <img style={{marginTop:'100px',marginBottom:'25px'}} src={RealLogo} className="Logoo"></img>
           <IonItem className="inputField">
             <IonLabel  position="floating" color="primary">Email</IonLabel>
             <IonInput 

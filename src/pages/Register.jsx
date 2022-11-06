@@ -96,7 +96,7 @@ import {
       <IonPage>
         <IonContent className="Pages">
           <IonGrid>
-            <img src={RealLogo} className="Logoo"></img>
+            <img style={{marginTop:'85px',marginBottom:'15px'}} src={RealLogo} className="Logoo"></img>
             <IonItem className="inputField">
               <IonLabel position="floating" color="primary">Name</IonLabel>
               <IonInput

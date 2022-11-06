@@ -25,6 +25,9 @@ import{
   onSnapshot,
 } from "firebase/firestore"
 import { AuthContext } from "../contexts/AuthContext";
+
+
+
 const Setupscreen = () => {
   const history = useHistory();
   const [Addnickname,setAddNickname]=useState([]);
