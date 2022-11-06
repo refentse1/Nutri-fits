@@ -27,7 +27,7 @@ import {
     updateDoc,
     deleteDoc
 } from "firebase/firestore";
-import {getAuth, updateEmail, updatePassword } from 'firebase/auth';
+import {getAuth, updateEmail, updatePassword, onAuthStateChanged} from 'firebase/auth';
 
 
 const UpdateInfo = () => {
@@ -53,46 +53,88 @@ const UpdateInfo = () => {
         setTargetWeightInput,
         setRegisterName,
         setRegisterSurname
+        , addHeight, addCurrentWeight, addNickName 
     } = useContext(AuthContext);
 
-    // const updateCredentials = async ( registerEmail, registerPassword) => {
-    //     await updateEmail(auth.users, registerEmail);
-    //     await updatePassword(auth.users, registerPassword);
-    //     console.log("updated: ", registerEmail, registerPassword );
-    // };
+
+    const addGoal = async () => {
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            const uid = user.uid;
+            const documentRef = doc(db, "userDetails", uid);
+          await updateDoc(documentRef, {goalWeight: targetWeightInput});
+          } else {
+            // User is signed out
+            console.log("failed");
+          }
+        });
+      };
+
+      const nameInput = async () => {
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            const uid = user.uid;
+            const documentRef = doc(db, "userDetails", uid);
+          await updateDoc(documentRef, {name: registerName});
+          } else {
+            // User is signed out
+            console.log("failed");
+          }
+        });
+      };
+
+      const surnameInput = async () => {
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            const uid = user.uid;
+            const documentRef = doc(db, "userDetails", uid);
+          await updateDoc(documentRef, {surname: registerSurname});
+          } else {
+            // User is signed out
+            console.log("failed");
+          }
+        });
+      };
 
     const updateCredentials = () => {
-        updateEmail(user, registerEmail).then(() => {
-            // Email updated!
-            // ...
-          }).catch((error) => {
-            // An error occurred
-            // ...
-          });
-    
-          updatePassword(user, registerPassword).then(() => {
-            // Update successful.
-          }).catch((error) => {
-            // An error ocurred
-            // ...
-          });    
+
+        if(registerEmail !== ""){
+            updateEmail(user, registerEmail).then(() => {
+                // Email updated!
+                // ...
+              }).catch((error) => {
+                // An error occurred
+                // ...
+              });
+        }else if(registerPassword !== ""){
+            updatePassword(user, registerPassword).then(() => {
+                // Update successful.
+              }).catch((error) => {
+                // An error ocurred
+                // ...
+              }); 
+        }  
 
     }
-    // const userCollectionRef = collection(db, "userDetails");
 
+    const updateDetails = () => {
 
-    // const updateUser = async (uid, weightInput, heightInput, targetWeightInput) => {
-    //     const documentRef = doc(db, "userDetails", uid);
-    //     const newFields = {
-    //         email: registerEmail,
-    //         goalWeight: targetWeightInput,
-    //         height: heightInput,
-    //         name: registerName,
-    //         surname: registerSurname,
-    //         weight: weightInput
-    //     };
-    //     await updateDoc(documentRef, newFields);
-    // };
+        if(targetWeightInput !== ""){
+            addGoal()
+        }else if(heightInput !== ""){
+            addHeight()
+        }else if(weightInput !== ""){
+            addCurrentWeight()
+        }else if(registerName !== ""){
+            nameInput()
+        }else if(registerSurname !== ""){
+            surnameInput()
+        }else{
+            console.log("No changes")
+        }
+
+        console.log("Details updated")
+    }
 
 
     return (
@@ -105,27 +147,29 @@ const UpdateInfo = () => {
                         </p>
                         <IonGrid>
                             <IonRow>
-                                <IonItem>
+                            <IonItem>
                                     <IonLabel position="floating">Name</IonLabel>
                                     <IonInput
                                         type='text'
-                                        
+                                        value= {registerName}
                                         onIonChange={(e) => setRegisterName(e.target.value)}
                                     />
                                 </IonItem>
+
                                 <IonItem>
                                     <IonLabel position="floating">Surname</IonLabel>
                                     <IonInput
                                         type='text'
-                                        
+                                        value= {registerSurname}
                                         onIonChange={(e) => setRegisterSurname(e.target.value)}
                                     />
                                 </IonItem>
+                                
                                 <IonItem>
                                     <IonLabel position="floating">Weight</IonLabel>
                                     <IonInput
                                         type='number'
-                                        
+                                        value= {weightInput}
                                         onIonChange={(e) => setWeightInput(e.target.value)}
                                     />
                                 </IonItem>
@@ -133,7 +177,7 @@ const UpdateInfo = () => {
                                     <IonLabel position="floating">Height</IonLabel>
                                     <IonInput
                                         type='number'
-                                        
+                                        value= {heightInput}
                                         onIonChange={(e) => setHeightInput(e.target.value)}
                                     />
                                 </IonItem>
@@ -141,14 +185,14 @@ const UpdateInfo = () => {
                                     <IonLabel position="floating">Target Weight</IonLabel>
                                     <IonInput
                                         type='number'
-                                        
+                                        value= {targetWeightInput}
                                         onIonChange={(e) => setTargetWeightInput(e.target.value)}
                                     />
                                 </IonItem>
                             </IonRow>
                         </IonGrid>
                         <p style={{ textAlign: "center" }}>
-                            <IonButton style={{color:"#573926"}} shape="round" >
+                            <IonButton style={{color:"#573926"}} shape="round" onClick= {updateDetails}>
                                 Update 
                             </IonButton>
                         </p>
