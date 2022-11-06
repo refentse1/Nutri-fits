@@ -24,16 +24,16 @@ ion-content.mypages{
     margin-bottom:20%
 }
 ion-input.email{
-    color: #573926;
-    border-bottom: 1px solid #573926 ;
+    color: #FE8235;
+    border-bottom: 1px solid #FE8235 ;
     border-bottom: none !important;
     border-bottom: 0px !important;
     font-family:Domine ;
 }
 ion-input.password{
-    color:#573926;
+    color:#FE8235;
     border-bottom: 1px solid;
-    border-color: #573926 ;
+    border-color: #FE8235 ;
     border-bottom: none !important;
     border-bottom: 0px !important;
     font-family:Domine ;
@@ -42,4 +42,7 @@ ion-input.password{
 ion-label.label{
     color:#573926;
     font-family:Domine ;
+}
+ion-item.inputField{
+    --background:transparent;
 }

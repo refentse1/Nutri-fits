@@ -97,8 +97,8 @@ import {
         <IonContent className="Pages">
           <IonGrid>
             <img src={RealLogo} className="Logoo"></img>
-            <IonItem>
-              <IonLabel position="floating" color="medium">Name</IonLabel>
+            <IonItem className="inputField">
+              <IonLabel position="floating" color="primary">Name</IonLabel>
               <IonInput
                 color="medium"
                 type="text"
@@ -106,8 +106,8 @@ import {
                 onIonInput={nameInput}
               ></IonInput>
             </IonItem>
-            <IonItem>
-              <IonLabel color="medium" position="floating">Surname</IonLabel>
+            <IonItem className="inputField">
+              <IonLabel color="primary" position="floating">Surname</IonLabel>
               <IonInput
                 color="medium"
                 type="text"
@@ -115,8 +115,8 @@ import {
                 onIonInput={surnameInput}
               ></IonInput>
             </IonItem>
-            <IonItem>
-              <IonLabel position="floating" color="medium">Email</IonLabel>
+            <IonItem className="inputField">
+              <IonLabel position="floating" color="primary">Email</IonLabel>
               <IonInput
                 color="medium"
                 class="nameI"
@@ -125,8 +125,8 @@ import {
                 onIonChange={emailInput}
               ></IonInput>
             </IonItem>
-            <IonItem>
-              <IonLabel position="floating"color="medium">Password</IonLabel>
+            <IonItem className="inputField">
+              <IonLabel position="floating"color="primary">Password</IonLabel>
               <IonInput
                 color="medium"
                 class="nameI"

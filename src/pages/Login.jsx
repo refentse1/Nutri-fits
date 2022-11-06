@@ -35,8 +35,8 @@ function Login() {
     <IonPage>
       <IonContent class="mypages">
           <img src={RealLogo} className="Logoo"></img>
-          <IonItem>
-            <IonLabel  position="floating" color="medium">Email</IonLabel>
+          <IonItem className="inputField">
+            <IonLabel  position="floating" color="primary">Email</IonLabel>
             <IonInput 
               className="email"
               type="email"
@@ -44,8 +44,8 @@ function Login() {
               value={loginEmail}
               onIonChange={emailInput}></IonInput>
           </IonItem>
-          <IonItem>
-            <IonLabel  position="floating" color="medium">Password</IonLabel>
+          <IonItem className="inputField">
+            <IonLabel  position="floating" color="primary">Password</IonLabel>
             <IonInput
               className="password"
               type="password"

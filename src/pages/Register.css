@@ -37,3 +37,6 @@ ion-content-item-input.title{
     margin-bottom:100px;
     margin-top:11px;
 }
+ion-item.inputField{
+    --background:transparent;
+}
