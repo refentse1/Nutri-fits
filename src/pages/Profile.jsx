@@ -47,7 +47,7 @@ function Profile(props) {
         </IonText>
 
 
-        <IonItem className="cursor" lines="none">
+        <IonItem className="cursor" lines="none" routerLink="/updateInfo">
           <IonLabel>
             <p>
               <IonIcon icon={createOutline} />
