@@ -19,14 +19,53 @@ import {
 import TabBar from "../components/TabBar";
 import Toolbar from "../components/Toolbar";
 import "./Profile.css";
-import { useContext } from "react";
+import { useContext} from "react";
+import {useHistory} from "react-router-dom"
 import { AuthContext } from "../contexts/AuthContext";
+import { getAuth, deleteUser, onAuthStateChanged } from "firebase/auth";
+import { db, auth} from "../config/firebase-config";
+import {doc, deleteDoc} from "firebase/firestore"
+
 
 function Profile(props) {
 
-  const { logOut, GetUser, userDetails, loading, setLoading,deleteUser} = useContext(AuthContext);
+  const { logOut, GetUser, userDetails, loading, setLoading} = useContext(AuthContext);
   const [presentAlert] = useIonAlert();
+
+  const redirect = useHistory()
+
+  const deleteAuth = async () => {
+    const auth = getAuth();
+    const user1 = auth.currentUser;
+
+    deleteUser(user1).then(() => {
+      
+      // User deleted.
+    }).catch((error) => {
+      // An error ocurred
+      // ...
+    });
+  }
+
+  const deleteDetails = () => {
+      onAuthStateChanged(auth, async (user) => {
+      const uid = user.uid;
+
+       if (user) {
+         await deleteDoc(doc(db, "userDetails", uid));
+       } else {
+         // User is signed out
+         console.log("failed");
+      }
+     })
+  }
   
+  const deleteAccount = () => {
+    deleteDetails()
+    deleteAuth()
+
+    redirect.push("/register")
+  }
 
 
   return (
@@ -39,6 +78,7 @@ function Profile(props) {
 
         <div className="img-container">
           <img src={userDetails.profile} />
+          
         </div>
 
         <IonText className= "inapp-text">
@@ -46,11 +86,12 @@ function Profile(props) {
           <p>{userDetails.email}</p>
         </IonText>
 
+       
 
-        <IonItem className="cursor" lines="none" routerLink="/updateInfo">
+        <IonItem lines="none" routerLink="/updateInfo">
           <IonLabel>
             <p>
-              <IonIcon icon={createOutline} />
+              <IonIcon icon={createOutline}/>
               Edit
             </p>
           </IonLabel>
@@ -77,7 +118,7 @@ function Profile(props) {
             </p>
           </IonLabel>
         </IonItem>
-         <IonItem className="cursor" lines="none" onClick={logOut}>
+        <IonItem className="cursor" lines="none" onClick={logOut}>
           <IonLabel>
             <p>
               <IonIcon icon={logOutOutline} />
@@ -86,7 +127,7 @@ function Profile(props) {
           </IonLabel>
         </IonItem>
 
-         <IonItem className="cursor" lines="none" onClick={deleteUser}>
+         <IonItem lines="none" className="cursor" onClick={deleteAccount}>
           <IonLabel>
             <p>
               <IonIcon icon={trashOutline} />
