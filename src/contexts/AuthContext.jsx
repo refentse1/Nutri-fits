@@ -31,9 +31,9 @@ const AuthContextProvider = (props) => {
   const [registerSurname, setRegisterSurname] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState("");
-  const [weightInput, setWeightInput] = useState(0);
-  const [heightInput, setHeightInput] = useState(0);
-  const [targetWeightInput, setTargetWeightInput] = useState(0);
+  const [weightInput, setWeightInput] = useState("");
+  const [heightInput, setHeightInput] = useState("");
+  const [targetWeightInput, setTargetWeightInput] = useState("");
   const [users, setUsers] = useState([]);
   const [currentId, setCurrentId] = useState("");
   const [userDetails, setUserDetails] = useState({})
@@ -235,7 +235,7 @@ const AuthContextProvider = (props) => {
             });
             // setMeal(meals);
             meals.forEach((meal)=>{
-                if(meal.id == id){
+                if(meal.id === id){
                     setMeal(meal);
                 }
             })
@@ -269,7 +269,7 @@ const AuthContextProvider = (props) => {
             });
             // setMeal(meals);
             workouts.forEach((workout)=>{
-                if(workout.id == id){
+                if(workout.id === id){
                     setWorkout(workout);
                 }
             })
