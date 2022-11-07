@@ -5,17 +5,17 @@ import "./TabBar.css"
 function TabBar() {
     return ( 
                 <IonTabBar color='' className="tabBar" slot="bottom">
-                <IonTabButton tab="profile" href="/profile">
-                    <IonIcon icon={personOutline}/>
-                    <IonLabel>Profile</IonLabel>
+                <IonTabButton tab="progress" href="/progress">
+                    <IonIcon icon={trendingUpOutline}/>
+                    <IonLabel>Progress</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="home" href="/home">
                     <IonIcon icon={homeOutline}/>
                     <IonLabel>Home</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="progress" href="/progress">
-                    <IonIcon icon={trendingUpOutline}/>
-                    <IonLabel>Progress</IonLabel>
+                 <IonTabButton tab="profile" href="/profile">
+                    <IonIcon icon={personOutline}/>
+                    <IonLabel>Profile</IonLabel>
                 </IonTabButton>
             </IonTabBar>
      );
