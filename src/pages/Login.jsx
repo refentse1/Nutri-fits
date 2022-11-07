@@ -20,7 +20,7 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 function Login() {
-  const { login, loginEmail, setLoginEmail, loginPassword, setLoginPassword, status } = useContext(AuthContext);
+  const { login, loginEmail, setLoginEmail, loginPassword, setLoginPassword, status, pwdResetEmail } = useContext(AuthContext);
     
 
     const emailInput = (e) => {
@@ -54,6 +54,7 @@ function Login() {
               onIonChange={passwordInput}
             ></IonInput>
           </IonItem>
+
                   {/* Pule modification */}
                   {status.error && 
             <p style={{marginLeft:"15px"}}>
