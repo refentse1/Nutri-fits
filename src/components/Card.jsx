@@ -8,7 +8,7 @@ function Card({title,card,path,id}) {
                 <IonRow className="ion-padding">
                 <IonCol size="12">
                     <IonCardHeader >
-                    <h6 className="title">{title}</h6>
+                    <h6 className="title1">{title}</h6>
                     </IonCardHeader>
                 </IonCol>
             </IonRow>
