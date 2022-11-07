@@ -24,14 +24,14 @@ ion-content.mypages{
     margin-bottom:20%;
 }
 ion-input.email{
-    color: #FE8235;
+    color:#ffffff;
     border-bottom: 1px solid #FE8235 ;
     border-bottom: none !important;
     border-bottom: 0px !important;
     font-family:Domine ;
 }
 ion-input.password{
-    color:#FE8235;
+    color:#ffffff;
     border-bottom: 1px solid;
     border-color: #FE8235 ;
     border-bottom: none !important;
