@@ -100,7 +100,7 @@ import {
             <IonItem className="inputField">
               <IonLabel position="floating" color="primary">Name</IonLabel>
               <IonInput
-                color="medium"
+                style={{color:"white"}}
                 type="text"
                 value={registerName}
                 onIonInput={nameInput}
@@ -109,7 +109,7 @@ import {
             <IonItem className="inputField">
               <IonLabel color="primary" position="floating">Surname</IonLabel>
               <IonInput
-                color="medium"
+                style={{color:"white"}}
                 type="text"
                 value={registerSurname}
                 onIonInput={surnameInput}
@@ -118,7 +118,7 @@ import {
             <IonItem className="inputField">
               <IonLabel position="floating" color="primary">Email</IonLabel>
               <IonInput
-                color="medium"
+                style={{color:"white"}}
                 class="nameI"
                 type="email"
                 value={registerEmail}
@@ -128,7 +128,7 @@ import {
             <IonItem className="inputField">
               <IonLabel position="floating"color="primary">Password</IonLabel>
               <IonInput
-                color="medium"
+                style={{color:"white"}}
                 class="nameI"
                 type="password"
                 value={registerPassword}
