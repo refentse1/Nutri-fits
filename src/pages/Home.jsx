@@ -38,7 +38,7 @@ GetUser();
             <IonTitle size="large">Blank</IonTitle>
           </IonToolbar> */}
         </IonHeader>
-        <IonTitle  className="nick">Hi! {userDetails.nickname}</IonTitle>
+        <IonTitle  className="nick">Hi {userDetails.nickname}!</IonTitle>
         {CardData.map((data) => {
           return (
             <Card
