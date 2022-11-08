@@ -1,5 +1,6 @@
 .slide{
  margin-top: 35vh;
+ margin-left: 65px;
 }
 ion-content.slide1{
     --background: white ;

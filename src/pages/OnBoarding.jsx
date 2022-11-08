@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonSlide, IonSlides, IonText } from "@ionic/react";
+import { IonButton, IonContent, IonPage, IonSlide, IonSlides, IonText } from "@ionic/react";
 import "./OnBoarding.css"
 import Log from '../images/RealLogo.png'
 import splash1 from "../images/LDkettle.JPG";
@@ -11,6 +11,7 @@ import Register from "./Register";
 import SignIn from "./SignIn";
 import { useState } from "react";
 import Home from "./Home";
+import Logo from '../images/RealLogo.png'
 
 
 
@@ -19,7 +20,7 @@ function OnBoarding() {
     const [auth,setAuth] = useState(false);
     
 
-    const slideOpts = {
+    const slideOptions = {
         initialSlide: 0,
         speed: 400,
         autoplay:true,
@@ -27,16 +28,13 @@ function OnBoarding() {
       };
 
     return ( 
-            <>
-                    {/* Check if user is authenticated or already registered and redirect them to the home page */}
-                    {auth ? <Home/> :
-                    // If they are not authenticated display the sliders to the SignIn/SignUp page
-                    <>
-                    <IonSlides  options={slideOpts}>
-                    <IonSlide >
+        <IonPage>
+            <IonContent>
+                <IonSlides pager={true} options={slideOptions}>
+                    <IonSlide>
                         <Slide1/>
                     </IonSlide>
-                    <IonSlide  >
+                    <IonSlide>
                         <Slide2/>
                     </IonSlide>
                     <IonSlide>
@@ -49,9 +47,8 @@ function OnBoarding() {
                         <SignIn/>
                     </IonSlide>
                 </IonSlides>
-                </>
-                }
-            </>
+            </IonContent>
+        </IonPage>
      );
 }
 

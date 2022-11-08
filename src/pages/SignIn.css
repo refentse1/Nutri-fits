@@ -1,5 +1,6 @@
 .slide{
     margin-top: 35vh;
+    margin-left: 25px;
    }
 
 ion-content.slide5{
@@ -11,12 +12,14 @@ ion-button.btnsign-in{
     --border-radius: 40px;
     font-family:'Domine';
     color: #573926;
-    font-weight:bolder
+    font-weight:bolder;
+    margin-left: 40px;
 }
 ion-button.btnlogin-in{
     font-family:'Domine';
     width: 163px;
     --border-radius: 40px;
     color: #573926;
-    font-weight:bolder
+    font-weight:bolder;
+    margin-left: 40px;
 }

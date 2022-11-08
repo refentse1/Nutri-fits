@@ -41,6 +41,7 @@ import OnBoarding from './pages/OnBoarding';
 import UserContext from './pages/context';
 import Setupscreen from './pages/Setupscreen';
 import UpdateInfo from './pages/UpdateInfo';
+import OnBoard from './pages/OnBoard';
 
 
 setupIonicReact();
@@ -140,8 +141,11 @@ const App = () => {
                 <Route exact path='/setupscreen'>
                   <Setupscreen/>
                 </Route>
+                <Route exact path='/onboard'>
+                  <OnBoard/>
+                </Route>
                 <Route exact path="/">
-                  <Redirect to="/onboarding" />
+                  <Redirect to="/onboard" />
                 </Route>
               </IonRouterOutlet>
           </IonReactRouter>
