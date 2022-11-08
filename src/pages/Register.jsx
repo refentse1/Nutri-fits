@@ -62,7 +62,7 @@ import {
                      surname: registerSurname,
                      email: user.email
                   });
-  
+                  localStorage.setItem("localUser", uid)
                   navigate.push("./weight")
   
           } else {

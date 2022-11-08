@@ -4,7 +4,8 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth, workoutRef } from "../config/firebase-config";
 import { db,mealRef } from "../config/firebase-config";
@@ -16,7 +17,8 @@ import {
   setDoc,
   doc,
   updateDoc,
-  deleteDoc
+  deleteDoc,
+  enableIndexedDbPersistence
 } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
 
@@ -53,8 +55,12 @@ const AuthContextProvider = (props) => {
   const [workout,setWorkout] = useState();
   const [profile,setProfile] = useState();
 
+
   //Fetching user data from firestore
   useEffect(() => {
+ 
+
+
    const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -77,9 +83,8 @@ const AuthContextProvider = (props) => {
       setUserId(user)
       console.log(user)
       console.log("User ID", userId)
-      // const found = users.find(item => item.id = userId)
-      // console.log("User found", found)
       setIsLoggedIn(true)
+      localStorage.setItem("localUser", user)
       
       window.location.pathname = "/home"
     })
@@ -92,6 +97,7 @@ const AuthContextProvider = (props) => {
 
   const logOut = () => {
     auth.signOut()
+    localStorage.clear()
     window.location.pathname = "/login"
   }
 
@@ -277,6 +283,20 @@ const AuthContextProvider = (props) => {
     },[id])
   }
 
+  const pwdResetEmail = () => {
+    const authorization = getAuth();
+sendPasswordResetEmail(authorization, loginEmail)
+  .then(() => {
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+  }
+
 
   return (
     <AuthContext.Provider
@@ -330,7 +350,8 @@ const AuthContextProvider = (props) => {
         GetWorkouts,
         GetWorkout,
         workout,
-        deleteUser
+        deleteUser,
+        pwdResetEmail
       }}
     >
       {props.children}

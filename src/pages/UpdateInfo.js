@@ -28,6 +28,7 @@ import {
     deleteDoc
 } from "firebase/firestore";
 import {getAuth, updateEmail, updatePassword, onAuthStateChanged} from 'firebase/auth';
+import {useHistory} from "react-router-dom"
 
 
 const UpdateInfo = () => {
@@ -55,6 +56,8 @@ const UpdateInfo = () => {
         setRegisterSurname
         , addHeight, addCurrentWeight, addNickName 
     } = useContext(AuthContext);
+
+    const redirect = useHistory()
 
 
     const addGoal = async () => {
