@@ -55,21 +55,12 @@ const AuthContextProvider = (props) => {
   const [workout,setWorkout] = useState();
   const [profile,setProfile] = useState();
 
-  enableIndexedDbPersistence(db)
-  .catch((err) => {
-      if (err.code == 'failed-precondition') {
-          // Multiple tabs open, persistence can only be enabled
-          // in one tab at a a time.
-          // ...
-      } else if (err.code == 'unimplemented') {
-          // The current browser does not support all of the
-          // features required to enable persistence
-          // ...
-      }
-  });
 
   //Fetching user data from firestore
   useEffect(() => {
+ 
+
+
    const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -92,9 +83,8 @@ const AuthContextProvider = (props) => {
       setUserId(user)
       console.log(user)
       console.log("User ID", userId)
-      // const found = users.find(item => item.id = userId)
-      // console.log("User found", found)
       setIsLoggedIn(true)
+      localStorage.setItem("localUser", user)
       
       window.location.pathname = "/home"
     })
@@ -107,6 +97,7 @@ const AuthContextProvider = (props) => {
 
   const logOut = () => {
     auth.signOut()
+    localStorage.clear()
     window.location.pathname = "/login"
   }
 

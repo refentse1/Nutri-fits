@@ -83,7 +83,6 @@ function Profile(props) {
 
         <IonText className= "inapp-text">
           <p>{userDetails.name} {userDetails.surname}</p>
-          <p>{userDetails.email}</p>
         </IonText>
 
        
