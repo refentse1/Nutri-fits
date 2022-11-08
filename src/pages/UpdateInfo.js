@@ -137,6 +137,8 @@ const UpdateInfo = () => {
         }
 
         console.log("Details updated")
+        window.location.reload()
+
     }
 
 
