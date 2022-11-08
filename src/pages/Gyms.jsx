@@ -23,7 +23,7 @@ const NearbyGyms = ()=>{
 
         var config = {
           method: 'get',
-          url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat}%2C${long}&radius=5000&type=gym&key=AIzaSyAs6URY0FrsM3w9FnbEdFfKxrOAtxAh4dI`,
+          url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat}%2C${long}&radius=5000&type=gym&key=AIzaSyAs6URY0FrsM3w9FnbEdFfKxrOAtxAh4dI`,
           headers: { }
         };
         
