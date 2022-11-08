@@ -34,6 +34,8 @@ function Profile(props) {
 
   const redirect = useHistory()
 
+
+  //Deleting user Auth, email asnd password
   const deleteAuth = async () => {
     const auth = getAuth();
     const user1 = auth.currentUser;
@@ -47,6 +49,8 @@ function Profile(props) {
     });
   }
 
+
+  //Deleting user details
   const deleteDetails = () => {
       onAuthStateChanged(auth, async (user) => {
       const uid = user.uid;
@@ -60,6 +64,8 @@ function Profile(props) {
      })
   }
   
+
+  //Combining the delete functions
   const deleteAccount = () => {
     deleteDetails()
     deleteAuth()

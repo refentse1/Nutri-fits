@@ -59,7 +59,7 @@ const UpdateInfo = () => {
 
     const redirect = useHistory()
 
-
+//Updating goal weight
     const addGoal = async () => {
         onAuthStateChanged(auth, async (user) => {
           if (user) {
@@ -73,6 +73,7 @@ const UpdateInfo = () => {
         });
       };
 
+      //Updating name input
       const nameInput = async () => {
         onAuthStateChanged(auth, async (user) => {
           if (user) {
@@ -86,6 +87,7 @@ const UpdateInfo = () => {
         });
       };
 
+        //Updating lastname input
       const surnameInput = async () => {
         onAuthStateChanged(auth, async (user) => {
           if (user) {
@@ -99,6 +101,7 @@ const UpdateInfo = () => {
         });
       };
 
+    //Updating credentials, password and email
     const updateCredentials = () => {
 
         if(registerEmail !== ""){
@@ -120,6 +123,7 @@ const UpdateInfo = () => {
 
     }
 
+    //Gathering update functions
     const updateDetails = () => {
 
         if(targetWeightInput !== ""){
