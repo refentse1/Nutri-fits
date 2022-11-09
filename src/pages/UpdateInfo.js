@@ -167,9 +167,7 @@ const UpdateInfo = () => {
       <Toolbar />
       <IonContent key={doc.uid}>
         <IonCard className="updateCard">
-          <p style={{ textAlign: "center" }}>
-            <IonText>Update Personal Details</IonText>
-          </p>
+           <h3 style={{textAlign:"center",marginTop:"30px", color:"#573926"}}>Update Personal Details</h3>
           <IonGrid>
             <IonRow>
               <IonItem>
