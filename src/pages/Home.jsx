@@ -28,6 +28,7 @@ const Home = () => {
 const {GetUser,userDetails} = useContext(AuthContext);
 
 GetUser();
+localStorage.setItem("details", JSON.stringify(userDetails)) 
 
   return (
     <IonPage>
