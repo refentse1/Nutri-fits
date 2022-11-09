@@ -119,31 +119,35 @@ const AuthContextProvider = (props) => {
   }
 
   const addCurrentWeight = () => {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const uid = user.uid;
-        const documentRef = doc(db, "userDetails", uid);
-      await updateDoc(documentRef, {weight: weightInput});
-      } else {
-        // User is signed out
-        console.log("failed");
-      }
-    });
+    if(weightInput !== ""){
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          const uid = user.uid;
+          const documentRef = doc(db, "userDetails", uid);
+        await updateDoc(documentRef, {weight: weightInput});
+        } else {
+          // User is signed out
+          console.log("failed");
+        }
+      });
+    }
     
   };
 
   const addHeight = async () => {
     
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const uid = user.uid;
-        const documentRef = doc(db, "userDetails", uid);
-    await updateDoc(documentRef, {height: heightInput});
-      } else {
-        // User is signed out
-        console.log("failed");
-      }
-    });
+    if(heightInput !== ""){
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          const uid = user.uid;
+          const documentRef = doc(db, "userDetails", uid);
+      await updateDoc(documentRef, {height: heightInput});
+        } else {
+          // User is signed out
+          console.log("failed");
+        }
+      });
+    }
   };
 
   const addGoal = async () => {
@@ -186,9 +190,8 @@ const AuthContextProvider = (props) => {
         const docSnap = await getDoc(docRef);
   
         if (docSnap.exists()) {
-          return setUserDetails(docSnap.data()) 
-          
-  
+          return setUserDetails(docSnap.data())
+        
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
